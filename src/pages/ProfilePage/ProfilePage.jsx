@@ -17,6 +17,7 @@ export default function ProfilePage() {
      /*
        1. An organization name
        2. Bio about the organization
+       2. problem statement
        3. select which areas you're looking to get mentor'd on
        4. Grant Specifics
      */
