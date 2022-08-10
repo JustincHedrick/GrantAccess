@@ -1,4 +1,5 @@
 import { checkToken } from '../../utilities/users-service'
+import "./ProfilePage.css";
 
 export default function ProfilePage() {
 
@@ -25,7 +26,38 @@ export default function ProfilePage() {
      
   return (
     <>
-      <h1>Profile</h1>
+      <h1>Mentor Profile</h1>
+      <br></br>
+      <br></br>
+
+      <div id="backgroundProfile">
+        <div id="profileImg"></div>
+        <h1>Mentor Name</h1>
+        <h2>Mentor Title</h2>
+      </div>
+
+
+      <hr />
+
+      <div id="bio">
+        <h3>About You:</h3>
+          {/* <textarea>
+          Somehow we have to either add to the form so the user input is synced up with the mentors Overview section.
+          </textarea> */}
+      </div>
+
+      <br></br>
+
+    <div id="section2">
+      <h4>Expertise</h4>
+      <br></br>
+      <h4>Experience</h4>
+      <br></br>
+      <h4>Links: </h4>
+
+
+
+      </div>
       <button onClick={handleCheckToken}>Check Recent Applications</button>
     </>
   );

@@ -9,3 +9,5 @@
 
 // TODO 8/9/2022
 // Focus on styling home page correctly and added additional pages and routes to match wireframes
+
+<!-- Check Sign Up form for PsuedoCode -->

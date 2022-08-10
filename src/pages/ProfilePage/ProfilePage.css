@@ -1,0 +1,23 @@
+#profileImg {
+    width: 10rem;
+    height: 10rem;
+    background-color: black;
+    border-radius: 50%;
+}
+
+
+#backgroundProfile {
+    width: 118rem;
+    height: 20rem;
+    border: 5px black solid;
+    background-color: red;
+}
+
+#bio{
+    border: 2px solid black;
+
+}
+
+#section2 {
+    border: 2px solid black;
+}
