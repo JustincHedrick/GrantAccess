@@ -9,31 +9,32 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
-
+// redid app.jsx to render nav and home page. I think it works well but may not be best solution
   return (
-    <main className="App">
-      { user ?
-        <>
-          <NavBar user={user} setUser={setUser} />
-          <Routes>
-            {/* Route components in here */}
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/home" element={<HomePage />} />
-          </Routes>
-        </>
-        :
-        // changed non-users to see home page and brought in nav-bar - go crazy - try to style like wireframes
-        <>
-          <NavBar user={user} setUser={setUser}/>
-          <Routes>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/sign-up" element={<AuthPage setUser={setUser}/>} />
-            <Route path="/login" element={<AuthPage />} />
-          </Routes>
-        </>
-      }
-    </main>
+    <>
+      <div className='pb-12'>
+        <NavBar user={user} setUser={setUser} />
+      </div>
+      <div className="bg-indigo-600 w-full h-screen">
+        <HomePage />
+        <AuthPage setUser={setUser} />
+      </div>
+    </>
   );
 }
 
 export default App;
+
+// { user ?
+//         <>
+//           <NavBar user={user} setUser={setUser} />
+
+//         </>
+//         :
+//         // changed non-users to see home page and brought in nav-bar - go crazy - try to style like wireframes
+//         <>
+//           <NavBar user={user} setUser={setUser}/>
+
+//         </>
+//       }
+      

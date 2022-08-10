@@ -11,3 +11,6 @@
 // Focus on styling home page correctly and added additional pages and routes to match wireframes
 
 <!-- Check Sign Up form for PsuedoCode -->
+
+// 8/10/2022 - Justin
+feel free to change whatever, I just got to coding and ended up here. Anything I tried to use Router and Links, the whole page went blank. Be sure to follow tailwind installation guide, super easy.
