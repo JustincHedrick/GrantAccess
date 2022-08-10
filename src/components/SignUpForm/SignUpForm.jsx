@@ -1,6 +1,14 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
 
+
+/*
+If the user is signing up they should have the option to select if they are
+a 'MENTOR' or 'MENTEE'. 
+
+Once the 'MENTOR'/'MENTEE' they are guided to a new form page.
+*/
+
 export default class SignUpForm extends Component {
   state = {
     name: '',
