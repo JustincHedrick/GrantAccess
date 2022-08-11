@@ -12,13 +12,45 @@ function App() {
 // redid app.jsx to render nav and home page. I think it works well but may not be best solution
   return (
     <>
-      <div className='pb-12'>
-        <NavBar user={user} setUser={setUser} />
-      </div>
-      <div className="bg-indigo-600 w-full h-screen">
-        <HomePage />
-        <AuthPage setUser={setUser} />
-      </div>
+ <main className="App">
+      { user ?
+        <>
+          <NavBar user={user} setUser={setUser} />
+          <Routes>
+            {/* Route components in here */}
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </>
+        :
+        // changed non-users to see home page and brought in nav-bar - go crazy - try to style like wireframes
+        <>
+          <NavBar user={user} setUser={setUser}/>
+          <Routes>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/sign-up" element={<AuthPage setUser={setUser}/>} />
+            <Route path="/login" element={<AuthPage />} />
+          </Routes>
+        </>
+      }
+    </main> 
+    <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 . All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+        <li>
+        </li>
+        <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+        </li>
+        <li>
+            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline">Contact</a>
+        </li>
+    </ul>
+</footer>
     </>
   );
 }
