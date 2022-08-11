@@ -1,0 +1,17 @@
+#Section1{
+    width: 50rem;
+    height: 20rem;
+    border: black solid 5px;
+}
+
+#text {
+    width: 25rem;
+    height: 10rem;
+    border: black solid 5px;
+}
+
+#Section2{
+    width: 50rem;
+    height: 20rem;
+    border: black solid 5px;
+}
