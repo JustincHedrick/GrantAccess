@@ -1,17 +1,71 @@
 #Section1{
-    width: 50rem;
-    height: 20rem;
-    border: black solid 5px;
+    display: inline;
+    margin-top: 7vmin;
+}
+
+#section1 {
+    height: 25rem;
+    margin-top: 5rem;
+    justify-content: center;
+    border: black solid 1.2px;
+
+}
+
+#test{
+    font-weight: bold;
+    font-size: 4vmin;
 }
 
 #text {
-    width: 25rem;
-    height: 10rem;
-    border: black solid 5px;
+    width: 60rem;
+    margin: 2rem 5rem 4rem 2rem;
+}
+
+#btns{
+    justify-content: space-evenly;
+    flex-direction: row;
+    display: flex;
 }
 
 #Section2{
-    width: 50rem;
-    height: 20rem;
+    display: flex;
+    gap: 20vmin;
+    justify-content: center;
+    margin-top: 55vmin;
+}
+#Lbox1{
+    width: 37rem;
+    height: 30rem;
+    border: black solid 5px;
+}
+#Rbox2{
+    width: 25rem;
+    height: 30rem;
+    border: black solid 5px;
+}
+
+
+
+#HIW-title{
+    margin-top: 55vmin;
+    font-size: 4vmin;
+    text-align: center;
+}
+
+#HIW{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#step{
+    width: 20rem;
+    height: 30rem;
+    border: black solid 5px;
+}
+
+
+#mid-box {
+    width: 20vmin;
+    height: 20vmin;
     border: black solid 5px;
 }

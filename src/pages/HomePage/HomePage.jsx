@@ -12,22 +12,64 @@ export default function HomePage() {
     <br></br>
     <br></br>
     <div id="Section1">
-      <h1 id="test">This is the home page</h1>
-      <div id="text">
-        afhbajbfhsabfsa
+      <div id="section1">
+        <h1 id="test">Find expert guidance on Environmental Grants</h1>
+        <div id="text">
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+        </div>
+        <div id="btns">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded ">Learn More</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded">SIGN UP!</button>
+        </div>
       </div>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">SIGN UP!</button>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">SIGN UP!</button>
-
     </div>
+
     <br></br>
-    <br></br>
-    <br></br>
-    <hr></hr>
+
+    <div id="Section2">
+      <div id="Lbox1">
+        <h1>Have Experience?</h1>
+      <div id="btns">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded ">Learn More</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded">SIGN UP!</button>
+        </div>
+      </div>
+      <div id="Rbox2">
+        <h1>I dont know what is going here</h1>
+      </div>
+    </div>
 
     <br></br>
     <br></br>
 
+    <h1 id="HIW-title">How It Works</h1>
+    <div id="HIW">
+      <div id="step">
+        <h3>Step 1</h3>
+        <div id="mid-box"></div>
+      </div>
+
+      <div id="step">
+        <h3>Step 2</h3>
+        <div id="mid-box"></div>
+      </div>
+
+      <div id="step">
+        <h3>Step 3</h3>
+        <div id="mid-box"></div>
+      </div>
+    </div>
     </>
   )
 }
