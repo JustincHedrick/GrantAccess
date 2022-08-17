@@ -26,7 +26,7 @@ export default function ProfilePage() {
      
   return (
     <>
-      <h1>Mentor Profile</h1>
+      <h1 className='mentor'>Mentor Profile</h1>
       <br></br>
       <br></br>
 
