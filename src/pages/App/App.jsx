@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useNavigate } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../Authpage/AuthPage';
@@ -18,8 +18,8 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/" element={<HomePage />} />
+            <Route path="/profile" element={<ProfilePage user={user} />} />
+            <Route path="/" element={<HomePage user={user} />} />
           </Routes>
         </>
         :
@@ -29,7 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/sign-up" element={<AuthPage setUser={setUser}/>} />
-            <Route path="/login" element={<AuthPage />} />
+            <Route path="/login" element={<AuthPage setUser={setUser} />} />
           </Routes>
         </>
       }
