@@ -9,33 +9,33 @@ export default function HomePage() {
     <>
     <br></br>
     <br></br>
-    <br></br>
-    <br></br>
-    <div id="Section1">
-      <div id="section1">
-        <h1 id="test">Find expert guidance on Environmental Grants</h1>
-        <div id="text">
-          Some sort of description will be here.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
-          Some sort of description will be here.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
-          Some sort of description will be here.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
-          Some sort of description will be here.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
-        </div>
-        <div id="btns">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded ">Learn More</button>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded">SIGN UP!</button>
-        </div>
-      </div>
-    </div>
 
+<div id="Section1">
+  <div id="section1" class="table items-center bg-white rounded-lg border shadow-md md:flex-row dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <img id="image" src="https://i.imgur.com/z2yXt8n.png" alt="forest"/>
+      <div className="S1-container">
+        <h5 id="HomeName">Find expert guidance on Environmental Grants</h5>
+        <p id="desc"> Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+          Some sort of description will be here.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Diam commodo augue hendrerit sed justo, venenatis, odio consectetur.
+        </p>
+          <div id="btn">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded ">Learn More</button>
+          </div>
+      </div>
+  </div>
+</div>
     <br></br>
+    <hr></hr>
 
     <div id="Section2">
       <div id="Lbox1">
@@ -54,22 +54,40 @@ export default function HomePage() {
     <br></br>
 
     <h1 id="HIW-title">How It Works</h1>
-    <div id="HIW">
-      <div id="step">
-        <h3>Step 1</h3>
-        <div id="mid-box"></div>
-      </div>
 
-      <div id="step">
-        <h3>Step 2</h3>
-        <div id="mid-box"></div>
-      </div>
-
-      <div id="step">
-        <h3>Step 3</h3>
-        <div id="mid-box"></div>
-      </div>
-    </div>
+<div className="card-container">
+  <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Step One</h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+      <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+  <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Step Two</h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+      <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+      <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Step Three</h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+      <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+</div>
+   
     </>
   )
 }

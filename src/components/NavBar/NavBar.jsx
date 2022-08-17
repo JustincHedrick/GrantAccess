@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 
+
 export default function NavBar({ user, setUser }) {
 //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let NonUserLinks = [
+    {name:"HOME", link:"/"},
     {name:"HOW IT WORKS", link:"/howitworks"},
     {name:"LOGIN", link:"/login"},
     {name:"SIGN-UP", link:"/signup"},
   ];
 //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let UserLinks = [
-    {name:"HOME", link:"/"},
-    {name:"ABOUT", link:"/aboutus"},
     {name:"GRANTS", link:"/grants"},
     {name:"FIND A MENTOR", link:"/findmentor"},
     {name:"CHAT", link:"/chat"},
@@ -33,21 +33,26 @@ export default function NavBar({ user, setUser }) {
           <span className='text-3x1 text-indigo-600 mr-1 pt-2'>
 
           </span>
+          {/* logo */}
           OURLOGOGOESHERE
+          
+          
         </div>
       {user ? 
       <>
         <ul className="md:flex md:items-center">
           {
             UserLinks.map((Link)=> (
-              <li key={Link.name} className='md:ml-8 text-xl'>
-                <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{Link.name}</a>
-              </li>
+              // <li key={Link.name} className='md:ml-8 text-xl'>
+                <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500'>
+                  {Link.name} </a>
+                
+              // </li>
             ))
           }
-          {/* dummie logout button */}
+          {/* dummie logout button > Logout button works <*/}
           <li>
-            <a href="" onClick={handleLogOut}>Log Out</a>
+            <a href="/" onClick={handleLogOut}>Log Out</a>
           </li>
         </ul>
       </>
