@@ -8,58 +8,76 @@ export default function ProfilePage() {
     console.log(expDate)
   }
 
-     //if mentor for selected area then have a list of mentees listed
-      /*
-        
-      */
-
-
-     // if mentee have a list of mentors listed for region?
-     /*
-       1. An organization name
-       2. Bio about the organization
-       2. problem statement
-       3. select which areas you're looking to get mentor'd on
-       4. Grant Specifics
-     */
  
      
   return (
     <>
-      <h1 className='mentor'>Mentor Profile</h1>
-      <br></br>
-      <br></br>
-
-      <div id="backgroundProfile">
-        <div id="profileImg"></div>
-        <h1>Mentor Name</h1>
-        <h2>Mentor Title</h2>
-      </div>
-
-
-      <hr />
-
-      <div id="bio">
-        <h3>About You:</h3>
-          {/* <textarea>
-          Somehow we have to either add to the form so the user input is synced up with the mentors Overview section.
-          </textarea> */}
-      </div>
-
-      <br></br>
-
-    <div id="section2">
-      <h4>Expertise</h4>
-      <br></br>
-      <h4>Experience</h4>
-      <br></br>
-      <h4>Links: </h4>
-      
-
-
+    <br></br>
+    <br></br>
+    <br></br>
+      <h1>random</h1>
+    <div className='background-cont'>
+      <div id="profile-pic">
+    {/* //the upload button here */}
 
       </div>
-      <button onClick={handleCheckToken}>Check Recent Applications</button>
+
+        <div id="details">
+          <h1>Name</h1>
+          <hr></hr>
+          <h1>Job Title</h1>
+        </div>
+
+
+
+
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+        <li class="mr-2" role="presentation">
+            <button class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="true">Profile</button>
+        </li>
+        <li class="mr-2" role="presentation">
+            <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 dark:border-transparent text-gray-500 dark:text-gray-400 border-gray-100 dark:border-gray-700" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Overview</button>
+        </li>
+
+    </ul>
+</div>
+<div id="myTabContent">
+    <div class="p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <h1>Personal Introduction:</h1>
+          <hr></hr>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          random random random random random random random random random random random random random random random random 
+        </p>
+          <h1>Experience</h1>
+          <hr></hr>
+          <h1>Topic</h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          random random random random random random random random random random random random random random random random 
+        </p>
+          <h1>Links</h1>
+          <hr></hr>
+          <h1>....</h1>
+        <ol class="text-sm text-gray-500 dark:text-gray-400">
+          <li>random random random random random random random random random random random random random random random random</li> 
+          <li>random random random random random random random random random random random random random random random random</li> 
+          <li>random random random random random random random random random random random random random random random random</li> 
+        </ol>
+    </div>
+
+
+    <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="REVIEWS" role="tabpanel" aria-labelledby="dashboard-tab">
+        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+    </div>
+
+</div>
+
     </>
   );
 }
+{/* <button onClick={handleCheckToken}>Check Recent Applications</button> */}

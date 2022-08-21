@@ -10,11 +10,12 @@ export default function NavBar({ user, setUser }) {
     {name:"LOGIN", link:"/login"},
     {name:"SIGN-UP", link:"/signup"},
   ];
-//  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
+  //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let UserLinks = [
     {name:"GRANTS", link:"/grants"},
     {name:"FIND A MENTOR", link:"/findmentor"},
     {name:"CHAT", link:"/chat"},
+    {name:"PROFILE", link:"/profile"},
   ]
 
   function handleLogOut() {
