@@ -1,10 +1,12 @@
 // import { checkToken } from '../../utilities/users-service'
 // import NavBar from '../../components/NavBar/NavBar';
 // not a lot done here just added the h1 so I could see it was working
-
+import { useNavigate } from 'react-router-dom';
 import "./HomePage.css";
 
 export default function HomePage() {
+  let navigate = useNavigate()
+
   return(
     <>
     <br></br>
@@ -41,8 +43,8 @@ export default function HomePage() {
       <div id="Lbox1">
         <h1>Have Experience?</h1>
       <div id="btns">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded ">Learn More</button>
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded">SIGN UP!</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded">Learn More</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-9 rounded" onClick={() => navigate('/signup') }>SIGN UP!</button>
         </div>
       </div>
       <div id="Rbox2">

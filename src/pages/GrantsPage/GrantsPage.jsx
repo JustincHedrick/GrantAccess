@@ -1,9 +1,6 @@
 import './GrantsPage/GrantsPage.css'
 
 export default function GrantsPage() {
-
-}
-
 return (
     <>
     <br></br>
@@ -14,4 +11,6 @@ return (
     <h1 className="grants">random</h1>
     
     </>
-)
+    )
+}
+

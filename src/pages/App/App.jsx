@@ -5,6 +5,8 @@ import AuthPage from '../Authpage/AuthPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
+// import GrantsPage from '../GrantsPage/GrantsPage';
 import './App.css';
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
             {/* Route components in here */}
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/" element={<HomePage user={user} />} />
-            <Route path="/grants" element={<GrantsPage  user={user} />} />
+            {/* <Route path="/grants" element={<GrantsPage  user={user} />} /> */}
           </Routes>
         </>
         :
@@ -31,6 +33,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
+            <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
           </Routes>
         </>
       }
