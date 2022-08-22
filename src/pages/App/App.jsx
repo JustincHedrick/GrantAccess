@@ -13,6 +13,7 @@ function App() {
   return (
     <>
  <main className="App">
+   {/* <AuthPage /> */}
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />
@@ -20,21 +21,21 @@ function App() {
             {/* Route components in here */}
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/" element={<HomePage user={user} />} />
+            <Route path="/grants" element={<GrantsPage  user={user} />} />
           </Routes>
         </>
         :
         // changed non-users to see home page and brought in nav-bar - go crazy - try to style like wireframes
         <>
-          <NavBar user={user} setUser={setUser}/>
+          <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/sign-up" element={<AuthPage setUser={setUser}/>} />
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
           </Routes>
         </>
       }
     </main> 
-    <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+    {/* <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 . All Rights Reserved.
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
@@ -50,7 +51,7 @@ function App() {
             <a href="#" class="hover:underline">Contact</a>
         </li>
     </ul>
-</footer>
+</footer> */}
     </>
   );
 }

@@ -20,11 +20,29 @@
     border: 5px black solid;
 }
 
-#bio{
-    border: 2px solid black;
-
+.background-cont {
+    border: 2px black solid;
+    border-radius: 10px;
+    height: 25rem;
+    justify-content: space-around;
+    display: grid;
 }
 
-#section2 {
-    border: 2px solid black;
+#profile-pic{
+    border: 2px black solid;
+    border-radius: 50%;
+    width: 14rem;
+    height: 14rem;
+    margin: auto;
+}
+
+#details {
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+}
+
+hr {
+    width: 100%;
+    margin: auto;
 }
