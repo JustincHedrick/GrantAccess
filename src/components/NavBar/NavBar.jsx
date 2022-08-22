@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom';
+import { BeakerIcon, ChatIcon, CogIcon, UserCircleIcon } from '@heroicons/react/solid'
 import * as userService from '../../utilities/users-service';
 
 
 export default function NavBar({ user, setUser }) {
 //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let NonUserLinks = [
-    {name:"HOME", link:"/"},
-    {name:"HOW IT WORKS", link:"/howitworks"},
-    {name:"LOGIN", link:"/login"},
-    {name:"SIGN-UP", link:"/signup"},
+    {name:"HOME", link:"/", icon: <BeakerIcon className="h-5 w-5 text-blue-500"/> },
+    {name:"HOW IT WORKS", link:"/howitworks", icon: <CogIcon className="h-5 w-5 text-blue-500"/>},
+    {name:"LOGIN", link:"/login", icon: "Login"},
+    {name:"SIGN-UP", link:"/signup", icon: "Sign-Up"},
   ];
   //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let UserLinks = [
-    {name:"GRANTS", link:"/grants"},
-    {name:"FIND A MENTOR", link:"/findmentor"},
-    {name:"CHAT", link:"/chat"},
-    {name:"PROFILE", link:"/profile"},
+    {name:"GRANTS", link:"/grants", icon: "Find grants"},
+    {name:"FIND A MENTOR", link:"/findmentor", icon: "Find a mentor"},
+    {name:"CHAT", link:"/chat", icon: <ChatIcon className="h-5 w-5 text-blue-500"/> },
+    {name:"PROFILE", link:"/profile", icon: <UserCircleIcon  className="h-5 w-5 text-blue-500"/>},
+    {name:"Log-out", link:"/", icon:"Log-out", onClick: handleLogOut}
   ]
 
   function handleLogOut() {
@@ -44,17 +46,16 @@ export default function NavBar({ user, setUser }) {
         <ul className="md:flex md:items-center">
           {
             UserLinks.map((Link)=> (
-              // <li key={Link.name} className='md:ml-8 text-xl'>
-                <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500'>
-                  {Link.name} </a>
-                
-              // </li>
+              <li key={Link.name} className='md:ml-8 text-xl'>
+                <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500' onClick={Link.onClick}>
+                  {Link.icon} </a>
+              </li>
             ))
           }
           {/* dummie logout button > Logout button works <*/}
-          <li>
+          {/* <li>
             <a href="/" onClick={handleLogOut}>Log Out</a>
-          </li>
+          </li> */}
         </ul>
       </>
       :
@@ -64,7 +65,7 @@ export default function NavBar({ user, setUser }) {
           {
             NonUserLinks.map((Link)=>(
               <li key={Link.name} className='md:ml-8 text-xl'>
-                <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{Link.name}</a>
+                <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{Link.icon} </a>
               </li>
             ))
           }
