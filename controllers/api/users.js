@@ -5,8 +5,19 @@ const User = require('../../models/user');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  update
 };
+
+async function update(req, res){
+  console.log(req.body);
+  const user = await User.findById(req.user._id)
+  user.name=req.body.name
+  user.bio=req.body.bio
+  console.log(user);
+  user.save();
+}
+
 
 async function login(req, res) {
   try {
