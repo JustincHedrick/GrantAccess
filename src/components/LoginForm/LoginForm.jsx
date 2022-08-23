@@ -51,7 +51,7 @@ export default function LoginForm({ setUser }) {
             <p className="error-message">&nbsp;{error}</p>
           </form>
           <hr></hr>
-      <h4 className='option'>Dont have an account? [link here]</h4>
+      <a href='/signup' className='option'>Dont have an account?</a>
   </div>
 </div>
     <div className='random'>
