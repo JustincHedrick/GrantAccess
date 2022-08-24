@@ -12,4 +12,6 @@ router.post('/login', usersCtrl.login);
 
 router.post('/update', usersCtrl.update);
 
+router.get('/', usersCtrl.getProfile);
+
 module.exports = router;

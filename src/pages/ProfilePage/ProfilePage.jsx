@@ -5,6 +5,23 @@ import "./ProfilePage.css";
 
 export default function ProfilePage({user}) {
 
+  const [profile, setProfile] = useState({});
+useEffect(() => {
+  async function updateUserProfile(name, bio) {
+     const profile = await usersApi.getProfile();
+     console.log(profile);
+     setProfile(profile);
+
+  //     navigate('/userprofile');
+}
+updateUserProfile();
+}, [])
+
+
+
+
+
+
   async function handleCheckToken() {
     const expDate = await checkToken();
     console.log(expDate)
