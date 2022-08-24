@@ -1,3 +1,4 @@
+import {useState, useEffect } from 'react'
 import { checkToken } from '../../utilities/users-service'
 import * as usersApi from "../../utilities/users-api";
 
@@ -9,7 +10,7 @@ export default function ProfilePage({user}) {
 useEffect(() => {
   async function updateUserProfile(name, bio) {
      const profile = await usersApi.getProfile();
-     console.log(profile);
+    //  console.log(profile);
      setProfile(profile);
 
   //     navigate('/userprofile');
@@ -24,7 +25,7 @@ updateUserProfile();
 
   async function handleCheckToken() {
     const expDate = await checkToken();
-    console.log(expDate)
+    // console.log(expDate)
   }
 
  

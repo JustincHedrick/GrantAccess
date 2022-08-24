@@ -13,7 +13,7 @@ module.exports = {
 
 async function getProfile(req, res){
   const userProfile = await User.findOne({_id: req.user._id})
-  console.log(userProfile)
+  // console.log(userProfile)
   res.json(userProfile);
 }
 
