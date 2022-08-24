@@ -6,14 +6,22 @@ module.exports = {
   create,
   login,
   checkToken,
-  update
+  update,
+  getProfile
 };
+
+
+async function getProfile(req, res){
+  const userProfile = await User.findOne({_id: req.user._id})
+  console.log(userProfile)
+  res.json(userProfile);
+}
 
 async function update(req, res){
   console.log(req.body);
   const user = await User.findById(req.user._id)
   user.name=req.body.name
-  user.bio=req.body.bio
+  // user.bio=req.body.bio
   console.log(user);
   user.save();
 }
