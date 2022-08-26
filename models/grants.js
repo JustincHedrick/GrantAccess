@@ -16,7 +16,8 @@ const grantSchema = new Schema({
   AdditionalInformationOnEligibility: {type: String},
   AgencyCode: {type: String},
   AgencyName: {type: String},
-  PostDate: {type: Date}
+  PostDate: {type: Date},
+  Description: {type: String}
 },{ collection : 'Grants' })
 
 module.exports = mongoose.model('Grants', grantSchema);

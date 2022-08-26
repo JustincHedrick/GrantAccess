@@ -9,6 +9,7 @@ import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import GrantsPage from '../GrantsPage/GrantsPage';
 import EditProfile from '../EditProfile/EditProfile';
 import Chat from '../Chat/Chat'
+import Footer from '../../components/Footer/Footer'
 import './App.css';
 
 function App() {
@@ -41,11 +42,23 @@ function App() {
           </Routes>
         </>
       }
+      <br></br>
+      <Footer />
     </main> 
-    <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+    
+    {/* <footer class="p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 . All Rights Reserved.
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+    <div>
+      <h1> Hi</h1>
+    </div>
+    <div>
+      <h1> Hi</h1>
+    </div>
+    <div>
+      <h1> Hi</h1>
+    </div> */}
+    {/* <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
         </li>
         <li>
@@ -57,8 +70,10 @@ function App() {
         <li>
             <a href="#" class="hover:underline">Contact</a>
         </li>
+
+        <Footer />
     </ul>
-</footer>
+</footer> */}
     </>
   );
 }

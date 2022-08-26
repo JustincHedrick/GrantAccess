@@ -46,7 +46,7 @@ export default function LoginForm({ setUser }) {
             <input type="text" name="email" placeholder="Email" value={credentials.email} onChange={handleChange} required />
             <label className='login'>Password</label>
             <input type="password" name="password" placeholder="Password" value={credentials.password} onChange={handleChange} required />
-            <h4 className='forgot'>Forgot Password?[link]</h4>
+            <h4 className='forgot'><a href="#">Forgot Password?</a></h4>
             <button className='login-btn' type="submit">LOG IN</button>
             <p className="error-message">&nbsp;{error}</p>
           </form>
