@@ -51,6 +51,7 @@ p{
 
 
 .login{
+    color: black;
     display: flex;
     margin: 15px 0 15px 0;
 }

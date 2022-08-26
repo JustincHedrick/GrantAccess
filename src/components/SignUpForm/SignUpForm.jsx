@@ -54,7 +54,7 @@ export default class SignUpForm extends Component {
       <div id="wrap">
       <div id="wrap1">
         <div className="form-container">
-          <h1 className='welcome'>Register Here:</h1>
+          <h1 className='welcome'>Sign Up Here</h1>
           <p>Please fill out this form below</p>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <label className='login'>Name</label>

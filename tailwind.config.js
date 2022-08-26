@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/flowbite/**/*.js",
-    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+    // './node_modules/tw-elements/dist/js/**/*.js'
 
   ],
   
@@ -11,6 +12,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    // require('tw-elements/dist/plugin')
     
   ],
 }
