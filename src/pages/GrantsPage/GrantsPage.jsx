@@ -5,7 +5,7 @@ import './GrantsPage.css';
 
 export default function GrantsPage() {
 
-    const [grants, setGrants] = useState({});
+    const [grants, setGrants] = useState(undefined);
 
    
     async function getGrants() {
@@ -23,6 +23,7 @@ return (
     <br />
     <div>
         <button type="button" onClick={getGrants}>grant button</button>
+        <h4>{JSON.stringify(grants[0]._id)}</h4>
     </div>
     <div className='grants'>
 

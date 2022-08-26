@@ -8,6 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import GrantsPage from '../GrantsPage/GrantsPage';
 import EditProfile from '../EditProfile/EditProfile';
+import Chat from '../Chat/Chat'
 import './App.css';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
             <Route path="/" element={<HomePage user={user} />} />
             <Route path="/grants" element={<GrantsPage  user={user} />} />
             <Route path="/editprofile" element={<EditProfile />} />
-
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </>
         :
