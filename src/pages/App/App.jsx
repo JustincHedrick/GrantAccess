@@ -8,7 +8,9 @@ import NavBar from '../../components/NavBar/NavBar';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import GrantsPage from '../GrantsPage/GrantsPage';
 import EditProfile from '../EditProfile/EditProfile';
+import HowItWorksPage from '../HowItWorksPage/HowItWorksPage';
 import Chat from '../Chat/Chat'
+import SelectedGrant from '../SelectedGrant/SelectedGrant';
 import Footer from '../../components/Footer/Footer'
 import './App.css';
 
@@ -27,6 +29,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/" element={<HomePage user={user} />} />
             <Route path="/grants" element={<GrantsPage  user={user} />} />
+            <Route path="/selectedgrant" element={<SelectedGrant  user={user} />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/chat" element={<Chat />} />
           </Routes>
@@ -36,6 +39,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
+            <Route path="/howitworks" element={<HowItWorksPage />}/>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />

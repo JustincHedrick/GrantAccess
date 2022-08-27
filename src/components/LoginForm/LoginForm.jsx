@@ -47,12 +47,14 @@ export default function LoginForm({ setUser }) {
             <label className='login'>Password</label>
             <input type="password" name="password" placeholder="Password" value={credentials.password} onChange={handleChange} required />
             <h4 className='forgot'><a href="#">Forgot Password?</a></h4>
+            <br></br>
             <button className='login-btn' type="submit">LOG IN</button>
+
             <p className="error-message">&nbsp;{error}</p>
           </form>
-          <hr></hr>
-      <a href='/signup' className='option'>Dont have an account?</a>
+      <h1 className='option'>Dont have an account? &nbsp;<a href='/signup' class="underline">Sign Up</a></h1>
   </div>
+
 </div>
     <div className='random'>
 

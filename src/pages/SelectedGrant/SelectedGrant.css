@@ -1,0 +1,30 @@
+#selectedGrantPage{
+    display: grid;
+}
+
+#findOneContainer{
+    display: flex;
+    justify-content: center;
+    width: 80rem;
+
+}
+#findOne{
+    display: block;
+    padding: 6px;
+    width: 50%;
+    height: 15rem;
+    background-color: lightgrey;
+    /* border: 2px black solid; */
+    justify-content: center;
+}
+
+#eligibility {
+    display: inline-block;
+    text-align: left;
+    padding: 0 60px 0 25px;
+}
+#grant-detail {
+    display: inline-block;
+    text-align: left;
+    padding: 0 60px 0 25px;
+}

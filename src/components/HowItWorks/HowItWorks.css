@@ -1,9 +1,10 @@
 #HIW-title{
-    font-size: 5rem;
+    font-size: 6vmin;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     margin-top: 10rem;
     font-weight: bold;
+    
 }
 
 .card-container{
@@ -11,6 +12,7 @@
     justify-content: space-around;
     margin-bottom: 35rem;
     height: 35rem;
+    box-shadow: 2px 2px black;
 }
 
 
@@ -43,3 +45,4 @@
     margin: 3rem;
 
 }
+
