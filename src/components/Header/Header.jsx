@@ -5,42 +5,31 @@ export default function Header() {
         <>
         <div className='background'>
             <div id="header">
-            <h1 id="title"> Find expert guidance on Environmental grants</h1>
-            <h2 id="header-p">
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing assistance to grant seekers.
-                Providing</h2>
+            <h1 id="title">Expert guidance on Environmental grants</h1>
+            <br></br>
+            <br></br>
+            <h2 id="header-p">Chat with Experience Guides</h2>
+                <p id="p2">Find and connect with Grant Guides- experienced fellow grant seekers open to sharing advice and insight.</p>
+            <h2 id="header-p">Search Grant Details</h2>
+                <p id="p2">Find information adn resources for currently open grants and past awards.</p>
 
 
-            </div>
             <a href='/howitworks' className="learnMore"> 
-                <button class="text-2xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-            Learn More
+                <button 
+                type="button"
+                class="text-green-700 hover:text-white bg-white border border-green-900 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-20 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">
+                    Learn More
                 </button>
+                <button 
+                type="button" 
+                class="focus:outline-none text-white bg-green-900 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-20 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    Get Started
+                </button>
+
+
+
             </a>
+            </div>
         </div>
 
 

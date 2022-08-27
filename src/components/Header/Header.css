@@ -1,8 +1,10 @@
 .background {
-    background-image: url("https://i.imgur.com/z2yXt8n.png");
+    background-image: url("https://i.imgur.com/mdyyi1Q.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 70rem;
+    /* position: reative; */
+    /* opacity: 0.5; */
     /* filter: blur(2px); */
     
 
@@ -11,36 +13,47 @@
 
 
 #header {
-    display: flex;
-
-  
+    display: table-caption;
+    
+    
 }
 
 #title{
-    display: block;
-    width: 40%;
+    /* display: block; */
+    width: 85vh;
     text-align: center;
     font-size: 5rem;
     text-align: left;
     margin-left: 5rem;
-    margin-top: 20rem;
+    margin-top: 10rem;
     font-weight: bold;
     color: white;
     margin-right: 8rem;
+    text-shadow: 2px 3px black;
 }
 
 #header-p {
-    margin-top: 20rem;
-    font-size: 1rem;
+    text-shadow: 2px 3px black;
+    font-size: 2.5rem;
     font-weight: bold;
-    width: 30%;
-    height: 10;
-    margin-left: 20rem;
+    /* width: 30%; */
+    margin-left: 7rem;
+    color: white;
+    margin-top: 5rem;
 }
 
 .learnMore {
     display: flex;
     flex-direction: row;
-    margin-left: 40rem;
-    margin-top: 10rem;
+    margin-left: 20rem;
+    margin-top: 5rem;
+    gap: 5rem;
+}
+
+
+#p2 {
+    display: flex;
+    font-size: 1.5rem;
+    margin-left: 7rem;
+    color: white;
 }

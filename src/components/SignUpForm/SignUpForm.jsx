@@ -1,6 +1,7 @@
 import { Component, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../utilities/users-service';
+import SignUpRadio from '../SignUpRadio/SignUpRadio';
 import '../SignUpForm/SignUpForm.css';
 
 /*
@@ -51,9 +52,18 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div id="wrap">
+      <>
+      
+      
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <SignUpRadio />
       <div id="wrap1">
-        <div className="form-container">
+      <div id="wrap2">
+        <div className="sign-container">
           <h1 className='welcome'>Sign Up Here</h1>
           <p>Please fill out this form below</p>
           <form autoComplete="off" onSubmit={this.handleSubmit}>
@@ -71,6 +81,7 @@ export default class SignUpForm extends Component {
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
+      </>
     );
   }
 }
