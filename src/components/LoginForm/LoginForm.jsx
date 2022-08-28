@@ -51,8 +51,8 @@ export default function LoginForm({ setUser }) {
             <button className='login-btn' type="submit">LOG IN</button>
 
             <p className="error-message">&nbsp;{error}</p>
-          </form>
       <h1 className='option'>Dont have an account? &nbsp;<a href='/signup' class="underline">Sign Up</a></h1>
+          </form>
   </div>
 
 </div>

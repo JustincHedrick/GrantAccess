@@ -3,11 +3,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 70rem;
-    /* position: reative; */
-    /* opacity: 0.5; */
-    /* filter: blur(2px); */
-    
-
 }
 
 
@@ -19,17 +14,15 @@
 }
 
 #title{
-    /* display: block; */
-    width: 85vh;
-    text-align: center;
+    width: 112vw;
     font-size: 5rem;
     text-align: left;
     margin-left: 5rem;
-    margin-top: 10rem;
+    margin-top: 7rem;
     font-weight: bold;
     color: white;
     margin-right: 8rem;
-    text-shadow: 2px 3px black;
+    text-shadow: 2px 3px black;;
 }
 
 #header-p {

@@ -11,8 +11,8 @@
 #findOne{
     display: block;
     padding: 6px;
-    width: 50%;
-    height: 15rem;
+    width: 50vw;
+    height: 25vh;
     background-color: lightgrey;
     /* border: 2px black solid; */
     justify-content: center;

@@ -8,10 +8,12 @@ import NavBar from '../../components/NavBar/NavBar';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import GrantsPage from '../GrantsPage/GrantsPage';
 import EditProfile from '../EditProfile/EditProfile';
-import HowItWorksPage from '../HowItWorksPage/HowItWorksPage';
+import AboutUsPage from '../AboutUs/AboutUsPage';
 import Chat from '../Chat/Chat'
 import SelectedGrant from '../SelectedGrant/SelectedGrant';
 import Footer from '../../components/Footer/Footer'
+import FaqPage from '../Faq/FaqPage'
+import FindAMentor from '../FindAMentor/FindAMentor';
 import './App.css';
 
 function App() {
@@ -32,6 +34,10 @@ function App() {
             <Route path="/selectedgrant" element={<SelectedGrant  user={user} />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
+            <Route path="/aboutus" element={<AboutUsPage />}/>
+            <Route path="/findamentor" element={<FindAMentor />}/>
           </Routes>
         </>
         :
@@ -39,14 +45,15 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/howitworks" element={<HowItWorksPage />}/>
+            {/* <Route path="/howitworks" element={<HowItWorksPage />}/> */}
+            <Route path="/aboutus" element={<AboutUsPage />}/>
             <Route path="/" element={<HomePage />} />
+            <Route path="/faq" element={<FaqPage />} />
             <Route path="/login" element={<AuthPage setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
           </Routes>
         </>
       }
-      <br></br>
       <Footer />
     </main> 
     
