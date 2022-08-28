@@ -1,18 +1,9 @@
-import { Component, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
-import SignUpRadio from '../SignUpRadio/SignUpRadio';
-import '../SignUpForm/SignUpForm.css';
-
-/*
-If the user is signing up they should have the option to select if they are
-a 'MENTOR' or 'MENTEE'. 
-
-Once the 'MENTOR'/'MENTEE' they are guided to a new form page.
-*/
+import SignUpStepper from '../SignUpStepper/SignUpStepper';
+import "./SignUpForm.css"
 
 export default class SignUpForm extends Component {
-  
   state = {
     name: '',
     email: '',
@@ -33,7 +24,6 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       // Update user state with user
       this.props.setUser(user);
-      useNavigate("/", { replace: true })
     } catch {
       // Invalid signup
       this.setState({
@@ -52,70 +42,40 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <>
-      
-      
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <SignUpRadio />
-      <div id="wrap1">
+<>
       <div id="wrap2">
-        <div className="sign-container">
-          <h1 className='welcome'>Sign Up Here</h1>
-          <p>Please fill out this form below</p>
+      <div id="wrap3">
+        <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label className='login'>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+          <label className='welcome'>SIGN UP</label>
+          <p>Sign up to connect with guides and learn about grant opportunties</p>
+            {/* <label className='login'>Name</label>
+            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required /> */}
             <label className='login'>Email</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
             <label className='login'>Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <label className='login'>Confirm</label>
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+            <br></br>
+            <button class="mt-5 focus:outline-none text-white bg-emerald-900 hover:bg-green-800 font-medium rounded-lg text-md px-10 py-3 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="submit" disabled={disable}>SIGN UP</button>
           </form>
-            <a href='/'><button to="/home" type="submit" disabled={disable}>Sign Up</button></a>
-          </div>
+          <br></br>
+        <hr></hr>
+        <br></br>
+        <button type="button" class="text-green-900 hover:text-white border border-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">
+          SIGN UP WITH GOOGLE
+        </button>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
-      </>
+      <div id="random-side"></div>
+      </div>
+
+      <SignUpStepper />
+
+
+  </>
     );
   }
 }
-
-
-// leaving just in case we run in to bugs with the class component and need to switch to functional component
-
-// export default function SignUpForm({setUser}) {
-
-//   const [state, setState] = useState({
-//     name: '',
-//     email: '',
-//     password: '',
-//     confirm: '',
-//     error: ''
-//   });
-
-
-//   return(
-//     <div>
-//         <div className="signup-container">
-//           <form autoComplete="off" onSubmit={this.handleSubmit}>
-//             <label>Name</label>
-//             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-//             <label>Email</label>
-//             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-//             <label>Password</label>
-//             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-//             <label>Confirm</label>
-//             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-//             <button type="submit" disabled={disable}>SIGN UP</button>
-//           </form>
-//         </div>
-//         <p className="error-message">&nbsp;{this.state.error}</p>
-//       </div>
-//   )
-// }

@@ -4,18 +4,18 @@ export default function HowItWorks() {
     return(
         <>
         {/* HOW IT WORKS */}
-<h1 id="HIW-title" class="text-green-900 drop-shadow-md">
+<h1 id="HIW-title" class="text-green-900">
     Get Started with Grant Guide
 </h1>
 
-<div className="card-container" class="flex mb-96 mt-32 h-96 justify-around">
+<div className="card-container" class="flex mb-32 mt-32 h-96 justify-around">
 
 {/* Step One */}
   <div class="p-6 bg-emerald-900 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
       <a href="#">
           <h5 class="mb-2 text-2xl font-normal tracking-tight text-stone-100 dark:text-white text-center">Sign Up</h5>
       </a>
-      <p class="mb-3  font-normal text-stone-100 dark:text-gray-400">
+      <p class="mb-3 font-normal text-stone-100 dark:text-gray-400">
         Create free account in minutes. 
       <br></br>
       <br></br>

@@ -4,7 +4,90 @@ export default function AboutUs() {
 
     return(
         <>
+{/* Software Engineers */}
   <h1 className="MTT"class="text-3xl mb-9 font-bold text-center">MEET THE TEAM</h1>
+    <div class="grid grid-cols-4 gap-4 mb-8 w-full ">
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Justin Hendrick
+          </h2>
+          <p class="text-purple-700 mb-2">Lead Software Engineer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Gaby Hernandez
+          </h2>
+          <p class="text-purple-700 mb-2">Software Engineer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Hitesh Deo
+          </h2>
+          <p class="text-purple-700 mb-2">Full Stack Developer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Maroof Khan
+          </h2>
+          <p class="text-purple-700 mb-2">Software Engineer/Product Manager</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+
+
+
+
+{/* UX/UI */}
+  </div>
+    <div class="grid grid-cols-4 gap-4 mb-8 w-full ">
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Rebecca Lin
+          </h2>
+          <p class="text-purple-700 mb-2">Software Engineer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Name Here
+          </h2>
+          <p class="text-purple-700 mb-2">Software Engineer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Name Here
+          </h2>
+          <p class="text-purple-700 mb-2">Software Engineer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+      <div class="bg-white rounded-lg shadow-lg">
+        <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />
+        <div class="p-6">
+          <h2 class="font-bold mb-2 text-2xl text-purple-800">Name Here
+          </h2>
+          <p class="text-purple-700 mb-2">Software Engineer</p>
+          <a href="#" class="text-purple-600 hover:text-purple-500 underline text-sm">Download Resume</a>
+        </div>
+    </div>
+{/* Data Scientist */}
+  </div>
     <div class="grid grid-cols-4 gap-4 mb-8 w-full ">
       <div class="bg-white rounded-lg shadow-lg">
         <img src="https://images.unsplash.com/photo-1600054800747-be294a6a0d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80" alt="" class="rounded-t-lg" />

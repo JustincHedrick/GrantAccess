@@ -1,5 +1,49 @@
-.signup-container {
-    font-size: 5rem;
-    margin-top: 25rem;
-    
+#wrap2 {
+    display: grid;
+    grid-template-columns: 70rem 70rem;
+}
+
+#wrap3 {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(255, 255, 255);
+}
+
+#random-side{
+    background-image: url("https://i.imgur.com/A0M2tn8.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 70%;
+    height: 118.1vmin;
+
+}
+
+
+.welcome{
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+
+
+
+.login-btn{
+    width: 45vmin;
+    height: 4vmin;
+    margin-top: 30px;
+    border-radius: 4px;
+    background-color: lightgray;
+
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 45vmin;
+    height: 4vmin;
+}
+
+p.error-message{
+    color: black;
+    margin: 0;
 }

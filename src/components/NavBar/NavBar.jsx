@@ -7,14 +7,14 @@ export default function NavBar({ user, setUser }) {
 //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let NonUserLinks = [
     {name:"HOME", link:"/", icon: <BeakerIcon className="h-5 w-5 text-blue-500"/> },
-    {name:"HOW IT WORKS", link:"/howitworks", icon: <CogIcon className="h-5 w-5 text-blue-500"/>},
+    {name:"HOW IT WORKS", link:"/aboutus", icon: <CogIcon className="h-5 w-5 text-blue-500"/>},
     {name:"LOGIN", link:"/login", icon: "Login"},
     {name:"SIGN-UP", link:"/signup", icon: "Sign-Up"},
   ];
   //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let UserLinks = [
     {name:"GRANTS", link:"/grants", icon: "Find grants"},
-    {name:"FIND A MENTOR", link:"/findmentor", icon: "Find a mentor"},
+    {name:"FIND A MENTOR", link:"/findamentor", icon: "Find a mentor"},
     {name:"CHAT", link:"/chat", icon: <ChatIcon className="h-5 w-5 text-blue-500"/> },
     {name:"PROFILE", link:"/profile", icon: <UserCircleIcon  className="h-5 w-5 text-blue-500"/>},
     {name:"Log-out", link:"/", icon:"Log-out", onClick: handleLogOut}
@@ -37,7 +37,7 @@ export default function NavBar({ user, setUser }) {
 
           </span>
           <h1 class="text-3xl">
-          Grant Guide
+          <a href='/'>Grant Guide </a>
           </h1>
           {/* logo */}
           
