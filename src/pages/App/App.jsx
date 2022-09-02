@@ -1,4 +1,4 @@
-import { useState, useNavigate } from 'react';
+import { useState, useNavigate, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../Authpage/AuthPage';
@@ -14,11 +14,21 @@ import SelectedGrant from '../SelectedGrant/SelectedGrant';
 import Footer from '../../components/Footer/Footer'
 import FaqPage from '../Faq/FaqPage'
 import FindAMentor from '../FindAMentor/FindAMentor';
+import * as grantsApi from "../../utilities/grants-api";
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
+  const [grants, setGrants] = useState([]);
   
+  useEffect(() => {
+    const getGrants = async () => {
+      const grants = await grantsApi.getGrants();
+      setGrants(grants);
+    }
+
+    getGrants();
+  }, []);
 // redid app.jsx to render nav and home page. I think it works well but may not be best solution
 
   return (
@@ -32,7 +42,7 @@ function App() {
             {/* Route components in here */}
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/" element={<HomePage user={user} />} />
-            <Route path="/grants" element={<GrantsPage  user={user}/>} />
+            <Route path="/grants" element={<GrantsPage  user={user} grants={grants} setGrant={setGrants}/>}/>
             <Route path="/selectedgrant" element={<SelectedGrant  user={user} />} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/chat" element={<Chat user={user}/>} />

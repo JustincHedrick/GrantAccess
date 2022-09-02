@@ -1,4 +1,6 @@
+import {useState, useEffect} from 'react';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import * as conversationApi from "../../utilities/conversation-api";
 import Conversation from '../../components/Conversation/Conversation';
 import Message from '../../components/Message/Message';
 import Online from '../../components/Online/Online'
@@ -6,6 +8,20 @@ import Online from '../../components/Online/Online'
 
 
 export default function Chat({user}) {
+
+  const [conversations, setConversations] = useState([]);
+
+  useEffect(()=> {
+    const getConversations = async () => {
+      try{
+      const res = await conversationApi.getConversation();
+      console.log(res)
+      } catch(err) {
+        console.log(err)
+      }
+    }
+  }, [])
+
   return(
     <>
     <br />

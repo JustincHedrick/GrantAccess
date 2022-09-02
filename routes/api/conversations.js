@@ -8,7 +8,7 @@ router.post("/", ConversationsCtrl.newConversation);
 
 
 //get conversation of a user
-
+router.get("/:userId", ConversationsCtrl.getConversation);
 
 
 module.exports = router;
