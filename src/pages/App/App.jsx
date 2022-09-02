@@ -18,22 +18,24 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
+  
 // redid app.jsx to render nav and home page. I think it works well but may not be best solution
+
   return (
     <>
  <main className="App">
    {/* <AuthPage /> */}
       { user ?
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser}/>
           <Routes>
             {/* Route components in here */}
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/" element={<HomePage user={user} />} />
-            <Route path="/grants" element={<GrantsPage  user={user} />} />
+            <Route path="/grants" element={<GrantsPage  user={user}/>} />
             <Route path="/selectedgrant" element={<SelectedGrant  user={user} />} />
             <Route path="/editprofile" element={<EditProfile />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/chat" element={<Chat user={user}/>} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
             <Route path="/aboutus" element={<AboutUsPage />}/>

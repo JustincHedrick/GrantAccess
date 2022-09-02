@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import {useState} from 'react';
+import * as grantsApi from "../../utilities/grants-api";
 import { BeakerIcon, ChatIcon, CogIcon, UserCircleIcon } from '@heroicons/react/solid'
 import * as userService from '../../utilities/users-service';
 
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({user, setUser}) {
+  
 //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let NonUserLinks = [
     {name:"HOME", link:"/", icon: <BeakerIcon className="h-5 w-5 text-blue-500"/> },
@@ -13,7 +16,7 @@ export default function NavBar({ user, setUser }) {
   ];
   //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let UserLinks = [
-    {name:"GRANTS", link:"/grants", icon: "Find grants"},
+    {name:"GRANTS", link:"/grants", icon: "Find grants",},
     {name:"FIND A MENTOR", link:"/findamentor", icon: "Find a mentor"},
     {name:"CHAT", link:"/chat", icon: <ChatIcon className="h-5 w-5 text-blue-500"/> },
     {name:"PROFILE", link:"/profile", icon: <UserCircleIcon  className="h-5 w-5 text-blue-500"/>},

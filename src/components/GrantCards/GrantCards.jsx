@@ -11,12 +11,12 @@ export default function GrantsPage() {
     
     function handleClick(){
        console.log("click")
-}
-async function getGrants() {
-    const grants = await grantsApi.getGrants();
-    setGrants(grants);
-    console.log(grants)
-}
+    }
+    async function getGrants() {
+        const grants = await grantsApi.getGrants();
+        setGrants(grants);
+        
+    }
 
 return(
 <>
@@ -30,8 +30,8 @@ return(
 <input class="inline items-center h-8 px-2 border border-gray-500 rounded-sm" type="search" Placeholder="Search…" />
         <button 
         type="button" 
-        onClick={getGrants} 
-        handleClick={handleClick}>
+        onClick={() => {getGrants() ; handleClick()}} 
+        >
             grant button
         </button>
     <div className='grantCards'>
