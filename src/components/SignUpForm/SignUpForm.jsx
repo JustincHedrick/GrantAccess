@@ -16,6 +16,7 @@ export default class SignUpForm extends Component {
     evt.preventDefault();
     try {
       const formData = { ...this.state };
+      console.log(formData)
       delete formData.confirm;
       delete formData.error;
       // The promise returned by the signUp service method
