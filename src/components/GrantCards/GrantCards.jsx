@@ -4,19 +4,9 @@ import * as grantsApi from "../../utilities/grants-api";
 import Sidebar from '../Sidebar/Sidebar';
 import './GrantCards.css'
 
-export default function GrantsPage() {
+// {grants, setGrants}
 
-    const [grants, setGrants] = useState([]);
-
-    
-    function handleClick(){
-       console.log("click")
-    }
-    async function getGrants() {
-        const grants = await grantsApi.getGrants();
-        setGrants(grants);
-        
-    }
+export default function GrantsPage({grants, setGrants}) {
 
 return(
 <>
@@ -30,9 +20,9 @@ return(
 <input class="inline items-center h-8 px-2 border border-gray-500 rounded-sm" type="search" Placeholder="Search…" />
         <button 
         type="button" 
-        onClick={() => {getGrants() ; handleClick()}} 
+        onClick={() => {handleClick()}} 
         >
-            grant button
+            Search Grants
         </button>
     <div className='grantCards'>
 

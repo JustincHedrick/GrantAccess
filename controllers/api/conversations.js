@@ -2,6 +2,7 @@ const Conversation = require('../../models/conversation');
 
 module.exports = {
   newConversation,
+  getConversation,
 }
 
 async function newConversation(req, res) {
@@ -15,6 +16,17 @@ async function newConversation(req, res) {
     
     res.status(200).json(savedConversation)
   }catch(err) {
+    res.status(500).json(err)
+  }
+}
+
+async function getConversation(req, res) {
+  try {
+    const conversation  = await Conversation.find({
+      members: { $in:[req.params.userId] },
+    })
+    res.status(200).json(conversation)
+  } catch(err) {
     res.status(500).json(err)
   }
 }
