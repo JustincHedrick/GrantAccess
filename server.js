@@ -13,7 +13,9 @@ app.use(logger('dev'));
 // Process data in body of request if 
 // Content-Type: 'application/json'
 // and put that data on req.body
+
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -23,7 +25,9 @@ app.use(require('./config/checkToken'));
 
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/grants', require('./routes/api/grants'))
+app.use('/api/grants', require('./routes/api/grants'));
+app.use('/api/conversations', require('./routes/api/conversations'));
+app.use('/api/messages', require('./routes/api/messages'));
 
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above
