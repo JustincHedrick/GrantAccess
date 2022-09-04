@@ -42,14 +42,16 @@ SIGN UP
 3. add a testimonial
 4. add im not a robot
 5. mentor/mentee form
+6. created a new form  [x]
+7. organization/role/location/about/first and last name/ email = update-able [x]
 
 ________________________________________________________________________________________________________
 
 PROFILE PAGE
 
-1. waiting for ux/ui
-2. edit profile form needs help
-3. get edit update to work on front end
+1. waiting for ux/ui [x]
+2. edit profile form needs help [x]
+3. get edit update to work on front end [x]
 4. Messaging 1.2 on wireframe = framework im going with
 
 ________________________________________________________________________________________________________
