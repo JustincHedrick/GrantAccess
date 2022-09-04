@@ -20,8 +20,14 @@ async function getProfile(req, res){
 async function update(req, res){
   console.log(req.body);
   const user = await User.findById(req.user._id)
-  user.name=req.body.name
-  // user.bio=req.body.bio
+  user.firstName=req.body.firstName
+  user.lastName=req.body.lastName
+  user.email=req.body.email
+  user.role=req.body.role
+  user.organization=req.body.organization
+  user.location=req.body.location
+  user.about=req.body.about
+  user.experience=req.body.experience
   console.log(user);
   user.save();
 }

@@ -6,8 +6,15 @@ import * as usersApi from "../../utilities/users-api"
 
 function ProfileForm({user}) {
     const [userUpdate, setUserUpdate] = useState({
-        name: user && user.name ? user.name : '',
-        // bio: user && user.bio ? user.bio : '',
+        name: user && user.firstName ? user.firstName : '',
+        name: user && user.lastName ? user.lastName : '',
+        name: user && user.email ? user.email : '',
+        name: user && user.password ? user.password : '',
+        name: user && user.role ? user.role : '',
+        name: user && user.organization ? user.organization : '',
+        name: user && user.location ? user.location : '',
+        name: user && user.about ? user.about : '',
+        name: user && user.experience ? user.experience : '',
     });
 
     const[submitting, setSubmitting] = useState(false);
@@ -26,7 +33,7 @@ function ProfileForm({user}) {
     
     
     function handlechange(evt) {
-        setUserUpdate({...userUpdate, [evt.target.name]: evt.target.value });
+        setUserUpdate({...userUpdate, [evt.target.firstName]: evt.target.value });
     }
 
 console.log(userUpdate);
@@ -37,21 +44,59 @@ console.log(userUpdate);
                 <h1 className="edit-profile-h1">Edit Profile</h1>
                 <form className="profile-form" onSubmit={handleSubmit} onChange={handlechange}>
                     <fieldset>
-                            <label><span>Name</span></label>
+                            <label><span>First Name</span></label>
                             <input 
-                            placeholder="Enter Username"
+                            placeholder="Enter First Name"
                             type="text"
-                            name="name"
-                            value= {userUpdate.name}
+                            name="firstName"
+                            value= {userUpdate.firstName}
+                             />
+                            <label><span>Last Name</span></label>
+                            <input 
+                            placeholder="Enter First Name"
+                            type="text"
+                            name="lastName"
+                            value= {userUpdate.lastName}
+                             />
+                            <label><span>Email</span></label>
+                            <input 
+                            placeholder="Update Email"
+                            type="text"
+                            name="email"
+                            value= {userUpdate.email}
+                             />
+                            <label><span>Role</span></label>
+                            <input 
+                            placeholder="Update Role"
+                            type="text"
+                            name="role"
+                            value= {userUpdate.role}
+                            />
+
+                            <label><span>Organization</span></label>
+                            <input 
+                            placeholder="Update Organization"
+                            type="text"
+                            name="organization"
+                            value= {userUpdate.organization}
+                            />
+                            <label><span>Location</span></label>
+                            <input 
+                            placeholder="Update Location"
+                            type="text"
+                            name="location"
+                            value= {userUpdate.location}
+                             />
+                            <label><span>About</span></label>
+                            <textarea 
+                            placeholder="Update About"
+                            type="text"
+                            name="about"
+                            value= {userUpdate.about}
                              />
                             
                             <br />
-                            {/* <label>Bio</label>
-                            <textarea 
-                            placeholder="Tell us about yourself"
-                            name="bio" 
-                            required
-                            /> */}
+
                             <button className="save-btn" type="submit" onSubmit={handleSubmit} onChange={handlechange}>Save</button>
                     </fieldset>
                 </form>
