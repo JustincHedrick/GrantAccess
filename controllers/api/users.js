@@ -28,6 +28,7 @@ async function update(req, res){
   user.location=req.body.location
   user.about=req.body.about
   user.experience=req.body.experience
+  user.jobDescription=req.body.jobDescription
   console.log(user);
   user.save();
 }

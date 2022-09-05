@@ -31,13 +31,16 @@ const userSchema = new Schema({
   location: {
     type: String,
   },
-  linkedIn: {
+  links: {
     type: String,
   },
   about: {
     type: String,
   },
   experience: {
+    type: String,
+  },
+  jobDescription: {
     type: String,
   },
 }, {
