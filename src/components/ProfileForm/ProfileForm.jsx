@@ -95,6 +95,14 @@ console.log(userUpdate);
                             value= {userUpdate.about}
                              />
                             
+                            <label><span>Description</span></label>
+                            <textarea 
+                            placeholder="Update Job Description "
+                            type="text"
+                            name="jobDescription"
+                            value= {userUpdate.jobDescription}
+                             />
+                            
                             <br />
 
                             <button className="save-btn" type="submit" onSubmit={handleSubmit} onChange={handlechange}>Save</button>
