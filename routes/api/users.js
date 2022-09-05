@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 6;
 const usersCtrl = require('../../controllers/api/users');
 const ensureLoggedIn = require('../../config/ensureLoggedIn')
 

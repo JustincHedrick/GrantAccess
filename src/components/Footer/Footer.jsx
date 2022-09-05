@@ -107,13 +107,13 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      </div>
-      <div className="text-center text-white font-bold p-1 bg-emerald-900">
-        <br></br>
-        <h1>© 2021 Copyright:</h1>
-        <p className="text-white h-0 font-bold">Grant Guides</p>
-      </div>
-    </footer>
-  )
 
-}
+      </footer>
+    )
+
+  }
+  {/* <div class="text-center text-white font-bold p-1 bg-emerald-900">
+    <br></br>
+    <h1>© 2021 Copyright:</h1>
+    <p class="text-white h-0 font-bold">Grant Guides</p>
+  </div> */}

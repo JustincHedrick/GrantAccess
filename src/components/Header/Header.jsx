@@ -11,7 +11,6 @@ export default function Header() {
             <h2 id="header-p">Search Grant Details</h2>
                 <p id="p2">Find information adn resources for currently open grants and past awards.</p>
 
-
             <a href='/aboutus' className="learnMore"> 
                 <button 
                 type="button"
