@@ -1,6 +1,6 @@
 .grantCards{
     display: grid;
-    grid-template-columns: 30rem 30rem 30rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: 30rem 30rem 30rem;
     justify-content: space-around;
     gap: 30px;

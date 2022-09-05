@@ -38,16 +38,14 @@ export default function NavBar({user, setUser}) {
   return (
     <>
 
+    <div className='sticky shadow-md w-full  top-0 left-0'>
 
-
-
-    <div className='fixed shadow-md w-full  top-0 left-0'>
       <div className='md:flex lg:flex xl:flex sm:flex bg-white pb-10 items-right justify-between py-4 md:px-10 px-7'>
         <div className='font-bold text=2x1 cursor-pointer flex items-center font-[Poppins] text-gray-800'>
           <span className='text-3x1 text-indigo-600 mr-1 pt-2'>
 
           </span>
-          <h1 class="text-3xl">
+          <h1 className="text-3xl">
           <a href='/'>Grant Guide </a>
           </h1>
           {/* logo */}

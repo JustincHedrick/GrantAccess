@@ -1,3 +1,4 @@
+
 import {useState, useEffect } from 'react'
 import { Card, Dropdown } from 'flowbite-react';
 import { checkToken } from '../../utilities/users-service'
@@ -5,7 +6,7 @@ import * as usersApi from "../../utilities/users-api";
 
 import "./ProfilePage.css";
 
-export default function ProfilePage({user}) {
+export default function ProfilePage({ user }) {
 
   const [profile, setProfile] = useState({});
 useEffect(() => {
@@ -14,10 +15,10 @@ useEffect(() => {
     //  console.log(profile);
      setProfile(profile);
 
-  //     navigate('/userprofile');
-}
-updateUserProfile();
-}, [])
+      //     navigate('/userprofile');
+    }
+    updateUserProfile();
+  }, [])
 
 
 
@@ -29,8 +30,8 @@ updateUserProfile();
     // console.log(expDate)
   }
 
- 
-     
+
+
   return (
     <>
     <br></br>
@@ -123,7 +124,6 @@ updateUserProfile();
         <input id="dropzone-file" type="file" class="hidden" />
     </label>
 </div>  */}
-
       {/* </div> */}
           {/* <div id="details">
                 <h1>{user.firstName} {user.lastName}</h1>
