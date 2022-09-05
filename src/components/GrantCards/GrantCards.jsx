@@ -1,57 +1,46 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import * as grantsApi from "../../utilities/grants-api";
 import Sidebar from '../Sidebar/Sidebar';
 import './GrantCards.css'
 
 // {grants, setGrants}
 
-export default function GrantsPage({grants, setGrants}) {
+export default function GrantsPage({ grantsCopy }) {
 
-return(
-<>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<Sidebar />
+    return (
+        <>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Sidebar />
 
-<input class="inline items-center h-8 px-2 border border-gray-500 rounded-sm" type="search" Placeholder="Search…" />
-        <button 
-        type="button" 
-        onClick={() => {handleClick()}} 
-        >
-            Search Grants
-        </button>
-    <div className='grantCards'>
+            <div className='grantCards'>
 
-        {grants.filter((item, idx) => idx < 12).map((item) => (
-            <>
-                        
-            <div class="items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
-                <div class="justify-between p-4 leading-normal">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.OpportunityTitle}({item.OpportunityID}) &nbsp; <a href='#'>hi</a></h5>
-                    <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.AgencyName}</h4>
+                {grantsCopy.filter((item, idx) => idx < 12).map((item) => (
+                    <div key={item.OpportunityID} className="items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+                        <div className="justify-between p-4 leading-normal">
+                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.OpportunityTitle}({item.OpportunityID}) &nbsp; <a href='#'>hi</a></h5>
+                            <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.AgencyName}</h4>
 
 
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Description:</h5>
-                    <p id="grant-desc">{item.Description}</p>
+                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Description:</h5>
+                            <p id="grant-desc">{item.Description}</p>
 
-                    <a href='/selectedgrant'>Read More</a>
+                            <a href='/selectedgrant'>Read More</a>
+                        </div>
+                        {/* <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.PostDate}</h4> */}
+                    </div>
+                ))
+                }
+
+
             </div>
-                {/* <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.PostDate}</h4> */}
-            </div>
-
-            </>
-        ))
-        }
-
-
-    </div>
-    <br></br>
-    <br></br>
-    {/* <div class="flex justify-center">
+            <br></br>
+            <br></br>
+            {/* <div class="flex justify-center">
   <nav aria-label="Page navigation example">
     <ul class="flex list-style-none">
       <li class="page-item disabled"><a
@@ -73,7 +62,7 @@ return(
   </nav>
 </div> */}
 
-</>
-)
+        </>
+    )
 
 }
