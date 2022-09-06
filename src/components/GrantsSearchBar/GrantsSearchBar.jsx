@@ -22,17 +22,29 @@ export default function GrantsSearchBar({ grants, setGrantsCopy }) {
   };
 
   const fuse = new Fuse(grants, searchOptions);
-  const searchResults = fuse.search(query);
-  const grantResults = query ? searchResults.map((result) => result.item) : grants;
 
   function handleChange(evt) {
     console.log(evt.currentTarget.value);
     setQuery(evt.currentTarget.value);
-    console.log(grantResults);
+
+  }
+
+  function handleSearch() {
+    const searchResults = fuse.search(query);
+    const grantResults = query ? searchResults.map((result) => result.item) : grants;
     setGrantsCopy(grantResults);
   }
 
   return (
-    <input className="inline items-center h-8 px-2 border border-gray-500 rounded-sm" type="text" placeholder="Search for grants…" value={query} onChange={handleChange} />
+    <section>
+    <input 
+      className="block w-full items-center p-1 border-2 border-neutral-200 rounded"
+      type="text" 
+      placeholder="Search for grants…" 
+      value={query} 
+      onChange={handleChange} 
+      />
+    <button className='block w-full bg-green-900 text-white p-1 rounded' onClick={handleSearch}>Search</button>
+    </section>
   )
 }

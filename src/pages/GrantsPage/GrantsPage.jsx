@@ -1,17 +1,12 @@
-import React from 'react';
 import GrantCards from '../../components/GrantCards/GrantCards'
-import GrantsSearchBar from '../../components/GrantsSearchBar/GrantsSearchBar';
-import Pagination from '../../components/Pagination/Pagination';
+import GrantsAgenciesAside from '../../components/GrantsAgenciesAside/GrantsAgenciesAside';
 import './GrantsPage.css';
 
 export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrants }) {
     return (
-        <>
-            <GrantsSearchBar grants={grants} setGrantsCopy={setGrantsCopy} />
+        <div className='GrantsPage p-4'>
+            <GrantsAgenciesAside setGrantsCopy={setGrantsCopy} grants={grants}/>
             <GrantCards grantsCopy={grantsCopy} />
-            <Pagination />
-        </>
+        </div>
     )
-
-
 }

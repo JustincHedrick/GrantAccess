@@ -2,6 +2,10 @@
     margin-top: 5%;
 }
 
-.desc{
-    
+.GrantsPage {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0, 4fr);
+    gap: 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
 }

@@ -1,7 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import * as grantsApi from "../../utilities/grants-api";
-import Sidebar from '../Sidebar/Sidebar';
+import Pagination from '../Pagination/Pagination';
 import './GrantCards.css'
 
 // {grants, setGrants}
@@ -9,18 +6,10 @@ import './GrantCards.css'
 export default function GrantsPage({ grantsCopy }) {
 
     return (
-        <>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <Sidebar />
-
+        <section>
             <div className='grantCards'>
-
-                {grantsCopy.filter((item, idx) => idx < 12).map((item) => (
-                    <div key={item.OpportunityID} className="items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+                {grantsCopy.filter((_, idx) => idx < 12).map((item) => (
+                    <div key={item.OpportunityID} className="items-center bg-white rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
                         <div className="justify-between p-4 leading-normal">
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.OpportunityTitle}({item.OpportunityID}) &nbsp; <a href='#'>hi</a></h5>
                             <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.AgencyName}</h4>
@@ -33,13 +22,9 @@ export default function GrantsPage({ grantsCopy }) {
                         </div>
                         {/* <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.PostDate}</h4> */}
                     </div>
-                ))
-                }
-
-
+                ))}
             </div>
-            <br></br>
-            <br></br>
+            <Pagination />
             {/* <div class="flex justify-center">
   <nav aria-label="Page navigation example">
     <ul class="flex list-style-none">
@@ -62,7 +47,7 @@ export default function GrantsPage({ grantsCopy }) {
   </nav>
 </div> */}
 
-        </>
+        </section>
     )
 
 }
