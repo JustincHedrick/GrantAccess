@@ -67,7 +67,7 @@ p{
 
 }
 
-input {
+.form-container input {
     border: 1px solid black;
     border-radius: 4px;
     width: 45vmin;
