@@ -1,6 +1,6 @@
 import Fuse from 'fuse.js';
 import { useState, useRef, useEffect } from 'react';
-import GrantCards from '../../components/GrantCards/GrantCards'
+import GrantsList from '../../components/GrantsList/GrantsList';
 import GrantsAgenciesAside from '../../components/GrantsAgenciesAside/GrantsAgenciesAside';
 import './GrantsPage.css';
 
@@ -38,7 +38,7 @@ export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrant
         const filterSet = new Set([...filters]);
         console.log(filterSet);
         if (searchQuery.current !== query) searchQuery.current = query;
-        console.log(searchQuery, )
+        console.log(searchQuery)
         const searchResults = fuse.search(query);
         let grantResults = query ? searchResults.map((result) => result.item) : grants;
         if (filters.length > 0) grantResults = grantResults.filter((grant) => filterSet.has(grant.AgencyName));
@@ -55,7 +55,7 @@ export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrant
                 query={query}
                 setQuery={setQuery}
                 handleSearch={handleSearch} />
-            <GrantCards grantsCopy={grantsCopy} />
+            <GrantsList grantsCopy={grantsCopy} />
         </div>
     )
 }

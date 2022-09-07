@@ -1,7 +1,7 @@
 #wrap {
     display: grid;
     grid-template-columns: 70rem 70rem;
-    
+
 }
 
 #wrap1 {
@@ -13,7 +13,7 @@
 .random {
     background-image: url("https://i.imgur.com/A0M2tn8.png");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     width: 70%;
     height: 118.1vmin;
 
@@ -24,15 +24,15 @@
 
 }
 
-.welcome{
+.welcome {
     font-weight: bold;
     font-size: 4rem;
 }
 
 
-p{
+.form-container p {
     font-size: 15px;
-    color:rgb(126, 126, 126);
+    color: rgb(126, 126, 126);
     margin-bottom: 5rem;
 
 }
@@ -45,20 +45,20 @@ p{
     text-decoration: underline;
 }
 
-.forgot:hover{
-    color:red;
+.forgot:hover {
+    color: red;
 }
 
 
 
-.login{
+.login {
     color: black;
     display: flex;
     margin: 15px 0 15px 0;
     font-weight: bold;
 }
 
-.login-btn{
+.login-btn {
     width: 45vmin;
     height: 4vmin;
     margin-top: 30px;
@@ -84,5 +84,5 @@ p{
 }
 
 .option:hover {
-    color:#134736;
+    color: #134736;
 }

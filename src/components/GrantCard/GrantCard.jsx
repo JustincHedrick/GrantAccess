@@ -1,31 +1,26 @@
 import Pagination from '../Pagination/Pagination';
-import './GrantCards.css'
+import './GrantCard.css'
 
 // {grants, setGrants}
 
-export default function GrantsCards({ grantsCopy }) {
-
+export default function GrantsCards({ grant }) {
     return (
-        <section>
-            <div className='grantCards'>
-                {grantsCopy.filter((_, idx) => idx < 12).map((item) => (
-                    <div key={item.OpportunityID} className="items-center bg-white rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
-                        <div className="justify-between p-4 leading-normal">
-                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.OpportunityTitle}({item.OpportunityID}) &nbsp; <a href='#'>hi</a></h5>
-                            <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.AgencyName}</h4>
-
-
-                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Description:</h5>
-                            <p id="grant-desc">{item.Description}</p>
-
-                            <a href='/selectedgrant'>Read More</a>
-                        </div>
-                        {/* <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.PostDate}</h4> */}
-                    </div>
-                ))}
+        <article className="items-center bg-white rounded-lg border-2 border-slate-500 shadow-md mb-8 last:mb-0 md:flex-row hover:bg-gray-100">
+            <section className='flex flex-row justify-between text-white bg-green-900 rounded-t-md px-4 py-2'>
+                <p>CFDA #: {grant.CFDANumbers}</p>
+                <p>{grant.CloseDate}</p>
+            </section>
+            <div className="justify-between p-4 leading-normal">
+                <h5 className="text-2xl font-bold tracking-tight text-gray-900">{grant.OpportunityTitle}</h5>
+                <h4 className="mb-2 text-base tracking-tight text-gray-900">{grant.AgencyName}</h4>
+                <h5 className="mb-2 text-1xl font-bold tracking-tight text-gray-900">Description</h5>
+                <p id="grant-desc">{grant.Description}</p>
+                <a href='/selectedgrant'>Read More</a>
             </div>
-            <Pagination />
-            {/* <div class="flex justify-center">
+            {/* <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.PostDate}</h4> */}
+        </article>
+    )
+    {/* <div class="flex justify-center">
   <nav aria-label="Page navigation example">
     <ul class="flex list-style-none">
       <li class="page-item disabled"><a
@@ -46,8 +41,4 @@ export default function GrantsCards({ grantsCopy }) {
     </ul>
   </nav>
 </div> */}
-
-        </section>
-    )
-
 }
