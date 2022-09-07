@@ -14,4 +14,6 @@ router.post('/update', usersCtrl.update);
 
 router.get('/', usersCtrl.getProfile);
 
+router.get('/:userid', usersCtrl.getUser);
+
 module.exports = router;

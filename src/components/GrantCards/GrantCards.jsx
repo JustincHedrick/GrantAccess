@@ -17,7 +17,7 @@ return(
 <br></br>
 <Sidebar />
 
-<input class="inline items-center h-8 px-2 border border-gray-500 rounded-sm" type="search" Placeholder="Search…" />
+<input class="inline items-center h-8 px-2 border border-gray-500 rounded-sm" type="search" placeholder="Search…" />
         <button 
         type="button" 
         onClick={() => {handleClick()}} 
@@ -31,12 +31,12 @@ return(
                         
             <div class="items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
                 <div class="justify-between p-4 leading-normal">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.OpportunityTitle}({item.OpportunityID}) &nbsp; <a href='#'>hi</a></h5>
-                    <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.AgencyName}</h4>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" key={item.idx}>{item.OpportunityTitle}({item.OpportunityID}) &nbsp; <a href='#'>hi</a></h5>
+                    <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" key={item.idx}>{item.AgencyName}</h4>
 
 
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Description:</h5>
-                    <p id="grant-desc">{item.Description}</p>
+                    <p id="grant-desc" key={item.idx}>{item.Description}</p>
 
                     <a href='/selectedgrant'>Read More</a>
             </div>

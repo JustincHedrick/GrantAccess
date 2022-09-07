@@ -1,6 +1,22 @@
+import {useState, useEffect} from 'react';
+import axios from 'axios'
 
+export default function Online({onlineUsers, currentId, setCurrentChat}) {
 
-export default function Online() {
+  const [mentors, setMentors] = useState([]);
+  const [onlineMentors, setOnlineMentors] = useState([])
+
+  useEffect(() => {
+    const getFriends = async () => {
+      const res = await axios.get("/api/users/" + currentId);
+      setMentors(res.data)
+    }
+
+    getFriends()
+  }, [currentId])
+
+  console.log(mentors)
+  
   return(
     <>
       <div className="chatOnline">

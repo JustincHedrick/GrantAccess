@@ -19,16 +19,6 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
-  const [grants, setGrants] = useState([]);
-  
-  useEffect(() => {
-    const getGrants = async () => {
-      const grants = await grantsApi.getGrants();
-      setGrants(grants);
-    }
-
-    getGrants();
-  }, []);
 // redid app.jsx to render nav and home page. I think it works well but may not be best solution
 
   return (
@@ -42,10 +32,10 @@ function App() {
             {/* Route components in here */}
             <Route path="/profile" element={<ProfilePage user={user} />} />
             <Route path="/" element={<HomePage user={user} />} />
-            <Route path="/grants" element={<GrantsPage  user={user} grants={grants} setGrant={setGrants}/>}/>
+            <Route path="/grants" element={<GrantsPage  user={user} />}/>
             <Route path="/selectedgrant" element={<SelectedGrant  user={user} />} />
             <Route path="/editprofile" element={<EditProfile />} />
-            <Route path="/chat" element={<Chat user={user}/>} />
+            <Route path="/chat" element={<Chat user={user} />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
             <Route path="/aboutus" element={<AboutUsPage />}/>

@@ -58,3 +58,10 @@ FIND A MENTOR
 
 1. def needs alot of work
 2. we should focus on creating this page
+
+________________________________________________________________________________________________________
+
+CHAT
+
+1. Install axios // npm i axios
+2. Install timeago.js // npm i timeago.js
