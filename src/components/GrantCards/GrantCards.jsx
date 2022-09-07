@@ -3,7 +3,7 @@ import './GrantCards.css'
 
 // {grants, setGrants}
 
-export default function GrantsPage({ grantsCopy }) {
+export default function GrantsCards({ grantsCopy }) {
 
     return (
         <section>
