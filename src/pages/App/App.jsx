@@ -21,7 +21,7 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [grants, setGrants] = useState([]);
   const [grantsCopy, setGrantsCopy] = useState(grants);
-
+  
   useEffect(() => {
     const getGrants = async () => {
       const grants = await grantsApi.getGrants();
