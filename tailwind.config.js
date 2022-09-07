@@ -30,6 +30,9 @@ module.exports = {
           0: '#FAFAFA',
           100: '#23242C'
         }
+      },
+      borderWidth: {
+        1: '1px'
       }
     }
   },
