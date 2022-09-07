@@ -7,12 +7,34 @@ module.exports = {
     // './node_modules/tw-elements/dist/js/**/*.js'
 
   ],
-  
+
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': {
+          10: '#CAE1D9',
+          50: '#217A5D',
+          300: '#1B634B',
+          500: '#134736',
+          700: '#0F382A'
+        },
+        'neutral' : {
+          50: '#DFDFDF',
+          300: '#B8B8B8',
+          500: '#8F8F8F',
+          700: '#676767',
+          900: '#676767'
+        },
+        'error' : '#FF5151',
+        'shade' : {
+          0: '#FAFAFA',
+          100: '#23242C'
+        }
+      }
+    }
   },
   plugins: [
     // require('tw-elements/dist/plugin')
-    
+
   ],
 }
