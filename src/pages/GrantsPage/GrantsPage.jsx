@@ -46,16 +46,36 @@ export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrant
     }
 
     return (
-        <div className='GrantsPage p-4'>
-            <GrantsAgenciesAside
-                setGrantsCopy={setGrantsCopy}
-                grants={grants}
-                agencyFilters={agencyFilters}
-                setAgencyFilters={setAgencyFilters}
-                query={query}
-                setQuery={setQuery}
-                handleSearch={handleSearch} />
-            <GrantsList grantsCopy={grantsCopy} />
-        </div>
+        <main className='GrantsPage py-8 px-4'>
+            <h1 className='text-4xl font-bold mb-8'>Find Grants</h1>
+            <div className='grid grid-cols-[minmax(0,_2fr)_minmax(0,_5fr)] gap-24'>
+                <GrantsAgenciesAside
+                    setGrantsCopy={setGrantsCopy}
+                    grants={grants}
+                    agencyFilters={agencyFilters}
+                    setAgencyFilters={setAgencyFilters}
+                    query={query}
+                    setQuery={setQuery}
+                    handleSearch={handleSearch} />
+                <section>
+                    <section>
+                        <section className='flex items-center justify-between mb-4'>
+                            <p className='text-2xl font-semibold'>{grantsCopy.length} results found</p>
+                            <section className='flex items-center gap-4'>
+                                <p className='text-2xl font-semibold'>Sort By</p>
+                                <select className='border-1 border-neutral-300 rounded px-2 py-1.5' name="cars" id="cars">
+                                    <option value="volvo">Relevance</option>
+                                    <option value="saab">Alphabetical (A-Z)</option>
+                                    <option value="mercedes">Alphabetical (Z-A)</option>
+                                    <option value="audi">Grant Funding (High to Low)</option>
+                                    <option value="audi">Grant Funding (Low to High)</option>
+                                </select>
+                            </section>
+                        </section>
+                    </section>
+                    <GrantsList grantsCopy={grantsCopy} />
+                </section>
+            </div>
+        </main>
     )
 }
