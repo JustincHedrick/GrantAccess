@@ -20,7 +20,7 @@ export default function GrantsCards({ grant }) {
                 <p>{formatDate(grant.CloseDate)}</p>
             </section>
             <div className="justify-between p-4 bg-shade-0 rounded-b-md leading-normal">
-                <h5 className="text-2xl font-bold tracking-tight text-gray-900">{grant.OpportunityTitle}</h5>
+                <h5 className="text-2xl font-semibold tracking-tight text-gray-900">{grant.OpportunityTitle}</h5>
                 <h4 className="mb-2 text-base tracking-tight text-gray-900">{grant.AgencyName}</h4>
                 <h5 className="mb-2 text-1xl font-bold tracking-tight text-gray-900">Description</h5>
                 <p id="grant-desc">{grant.Description}</p>

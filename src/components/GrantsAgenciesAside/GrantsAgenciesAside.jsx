@@ -22,7 +22,7 @@ export default function GrantsAgenciesAside({ grants, setGrantsCopy, agencyFilte
     <aside>
       <GrantsSearchBar query={query} setQuery={setQuery} agencyFilters={agencyFilters} handleSearch={handleSearch} />
       <section className="rounded border-1 border-neutral-50 px-2 pb-4">
-        <h2 className="text-2xl mb-2 pt-2">Agencies</h2>
+        <h2 className="text-2xl font-bold mb-2 pt-2">Agency</h2>
         {[...agencies].map((agency) => (
           <div className="flex gap-2 align-middle mb-2 last:mb-0">
             <input onChange={handleChange} type="checkbox" name={agency} id="" />
