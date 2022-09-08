@@ -69,13 +69,13 @@ io.on("connection", (socket) => {
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     if (users.includes(receiverId)) {
-    const user = getUser(receiverId);
+    const user = getUser(senderId);
     io.to(user.socketId).emit("getMessage", {
       senderId,
       text,
     });
     } else {
-      const user = getUser(senderId);
+      const user = getUser(receiverId);
 
       io.to(user.socketId).emit("getMessage", {
       senderId,
