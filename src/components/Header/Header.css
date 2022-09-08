@@ -36,11 +36,10 @@
 }
 
 .learnMore {
-    display: flex;
-    flex-direction: row;
-    margin-left: 20rem;
+    display: inline-block;
+    margin-left: 10rem;
     margin-top: 5rem;
-    gap: 5rem;
+    gap: 10rem;
 }
 
 

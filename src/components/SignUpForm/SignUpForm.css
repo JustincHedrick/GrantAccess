@@ -1,4 +1,4 @@
-#wrap2 {
+/* #wrap2 {
     display: grid;
     grid-template-columns: 70rem 70rem;
 }
@@ -7,24 +7,35 @@
     display: flex;
     justify-content: space-evenly;
     background-color: rgb(255, 255, 255);
-}
+} */
 
 #random-side{
     background-image: url("https://i.imgur.com/A0M2tn8.png");
     background-repeat: no-repeat;
     background-size:cover;
-    width: 70%;
+    width: 90%;
     height: 118.1vmin;
 
 }
 
+.signUpDiv {
+    display: grid;
+    grid-template-columns: 65rem 45rem;
+}
 
 .welcome{
     font-weight: bold;
     font-size: 4rem;
 }
 
+.formSU{
+    margin-top: 20%;
 
+}
+
+.under {
+    margin-bottom: 2rem;
+}
 
 
 .login-btn{
@@ -36,7 +47,7 @@
 
 }
 
-input {
+.signUpDiv input {
     border: 1px solid black;
     border-radius: 4px;
     width: 45vmin;

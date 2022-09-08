@@ -5,25 +5,44 @@ const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema({
-  name: { 
+  firstName: { 
     type: String, 
     required: true },
-  // lastName: { 
-  //   type: String, 
-  //   required: true },
+  lastName: { 
+    type: String, 
+    required: true },
   email: {
     type: String,
     unique: true,
     trim: true,
     lowercase: true,
-    required: true
   },
   password: {
     type: String,
     trim: true,
     minlength: 3,
-    required: true
-  }
+  },
+  role: {
+    type: String,
+  },
+  organization: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  links: {
+    type: String,
+  },
+  about: {
+    type: String,
+  },
+  experience: {
+    type: String,
+  },
+  jobDescription: {
+    type: String,
+  },
 }, {
   timestamps: true,
   toJSON: {
