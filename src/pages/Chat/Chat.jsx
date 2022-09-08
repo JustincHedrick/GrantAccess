@@ -29,20 +29,20 @@ export default function Chat({user}) {
         createdAt: Date.now(),
       });
     });
-  }, []);
-
+  }, [socket]);
+  
   useEffect(() => {
     arrivalMessage &&
       currentChat?.members.includes(arrivalMessage.sender) &&
       setMessages((prev) => [...prev, arrivalMessage]);
-  }, [arrivalMessage, currentChat]);
+  }, [arrivalMessage, currentChat, socket]);
 
   useEffect(() => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(users)
     })
-  }, [user._id])
+  }, [user, socket])
 
   useEffect(()=> {
     const getConversation = async () => {
@@ -54,7 +54,7 @@ export default function Chat({user}) {
       }
     }
     getConversation()
-  }, [user._id])
+  }, [user, socket])
 
   useEffect(() => {
     const getMessages = async () => {
@@ -66,7 +66,7 @@ export default function Chat({user}) {
       }
     }
     getMessages();
-  }, [currentChat])
+  }, [currentChat, socket])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
