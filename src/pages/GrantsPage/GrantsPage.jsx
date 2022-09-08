@@ -4,7 +4,18 @@ import GrantsList from '../../components/GrantsList/GrantsList';
 import GrantsAgenciesAside from '../../components/GrantsAgenciesAside/GrantsAgenciesAside';
 import './GrantsPage.css';
 
-export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrants }) {
+export default function GrantsPage({user}) {
+    const [ grants, grantsCopy, setGrantsCopy, setGrants ] = useState([]);
+    
+    useLayoutEffect(() => {
+    getGrants()
+    }, []);
+
+console.log(grants)
+  async function getGrants() {
+      const theGrants = await grantsApi.getGrants();
+      setGrants(theGrants);
+  }
     const [agencyFilters, setAgencyFilters] = useState([]);
     const [query, setQuery] = useState('');
 

@@ -7,9 +7,15 @@ module.exports = {
   login,
   checkToken,
   update,
-  getProfile
+  getProfile,
+  getUser
 };
 
+
+async function getUser(req, res) {
+    const user = await User.findById(req.params.userid)
+    res.status(200).json(user)
+}
 
 async function getProfile(req, res){
   const userProfile = await User.findOne({_id: req.user._id})
