@@ -1,4 +1,4 @@
-import { useState, useNavigate, useEffect } from 'react';
+import { useState, useNavigate, useEffect, } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../Authpage/AuthPage';
