@@ -1,5 +1,4 @@
 import {useState, useEffect, useRef} from 'react';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import * as conversationApi from "../../utilities/conversation-api";
 import * as usersApi from "../../utilities/users-api";
 import Conversation from '../../components/Conversation/Conversation';
