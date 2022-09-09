@@ -6,7 +6,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const io = require("socket.io")(3002, {
   cors: {
-    origin: "http://localhost:3000"
+    origin: "*"
   }
 });
 
@@ -44,7 +44,6 @@ let users = [];
 
 const addUser = (userId, socketId) => {
   !users.some(user=> user.userId === userId) && users.push({ userId, socketId })
-  console.log(users)
 }
 
 const removeUser = (socketId) => {
@@ -52,13 +51,11 @@ const removeUser = (socketId) => {
 }
 
 const getUser = (userId) => {
-  console.log(userId)
   return users.find((user) => user.userId === userId);
 };
 
 io.on("connection", (socket) => {
   //when ceonnect
-  console.log("a user connected.");
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
@@ -68,7 +65,7 @@ io.on("connection", (socket) => {
   //send and get message
 
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-    console.log(receiverId, senderId)
+    //send message when both sender and reciever are connected
     if (users.some((user) => user.userId === receiverId)) {
       const user = getUser(receiverId);
       io.to(user.socketId).emit("getMessage", {
@@ -76,6 +73,7 @@ io.on("connection", (socket) => {
       text,
     }); 
     } else {
+      // send message when only sender is connected to socket
       socket.on("sendMessage", ({ senderId, receiverId, text }) => {
       const user = getUser(senderId);
       io.to(user.socketId).emit("getMessage", {
@@ -91,9 +89,9 @@ io.on("connection", (socket) => {
 
   //when disconnect
   socket.on("disconnect", () => {
-    console.log("a user disconnected!");
     removeUser(socket.id);
     io.emit("getUsers", users);
+    
   });
 });
 
