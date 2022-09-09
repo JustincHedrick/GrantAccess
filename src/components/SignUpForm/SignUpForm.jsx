@@ -16,7 +16,8 @@ export default class signup extends Component {
         links: '',
         about: '',
         jobDescription: '',
-        error: ''
+        error: '',
+        isMentor: null,
       };
     
       handleSubmit = async (evt) => {

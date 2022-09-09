@@ -47,7 +47,7 @@ function App() {
               <Route path="/grants" element={<GrantsPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
               <Route path="/selectedgrant" element={<SelectedGrant user={user} />} />
               <Route path="/editprofile" element={<EditProfile />} />
-              <Route path="/chat" element={<Chat user={user} />} />
+              <Route path="/chat" element={<Chat user={user} grants={grants}/>} />
               <Route path="/faq" element={<FaqPage />} />
               <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
               <Route path="/aboutus" element={<AboutUsPage />} />

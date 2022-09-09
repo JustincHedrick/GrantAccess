@@ -43,6 +43,9 @@ const userSchema = new Schema({
   jobDescription: {
     type: String,
   },
+  isMentor: {
+    type: Boolean,
+  }
 }, {
   timestamps: true,
   toJSON: {

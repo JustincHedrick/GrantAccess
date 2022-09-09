@@ -9,7 +9,7 @@ import {io} from 'socket.io-client'
 
 
 
-export default function Chat({user}) {
+export default function Chat({user, grants}) {
 
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -29,7 +29,7 @@ export default function Chat({user}) {
         createdAt: Date.now(),
       });
     });
-  }, [user._id]);
+  }, [user._id, socket, currentChat]);
   
   useEffect(() => {
     arrivalMessage &&
@@ -42,7 +42,7 @@ export default function Chat({user}) {
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(users)
     })
-  }, [user._id,])
+  }, [user._id, socket, grants])
 
   useEffect(()=> {
     const getConversation = async () => {
@@ -101,10 +101,6 @@ export default function Chat({user}) {
 
   return(
     <>
-    <br />
-    <br />
-    <br />
-    <br />
       <div className="messenger flex flex-row h-[80vh]">
         <div className="chatMenu basis-1/5 text-white flex h-full">
           <div className="p-6 bg-emerald-900 w-full">
