@@ -5,12 +5,48 @@ import GrantsAgenciesAside from '../../components/GrantsAgenciesAside/GrantsAgen
 import './GrantsPage.css';
 
 export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrants }) {
+    const FUNDING_MAX = 10000000;
+    const FUNDING_MIN = 0;
+    const INCREMENT = 100000;
+
+    const SORTING_KEYS = new Map();
+    SORTING_KEYS.set('postDate', {
+        propertyName: 'PostDate',
+        dropDownTitle: 'Post Date',
+        isAscending: false,
+        cleanValue: (date) => {
+            return date ? Date.parse(date) : Infinity;
+        }
+    });
+    SORTING_KEYS.set('closeDate', {
+        propertyName: 'CloseDate',
+        dropDownTitle: 'Close Date',
+        isAscending: false,
+        cleanValue: (date) => {
+            return date ? Date.parse(date) : Infinity;
+        }
+    });
+    SORTING_KEYS.set('titleA', {
+        propertyName: 'OpportunityTitle',
+        dropDownTitle: 'Grant Title',
+        isAscending: false,
+        cleanValue: (title) => {
+            return title;
+        }
+    });
+
     const [agencyFilters, setAgencyFilters] = useState([]);
+    const [funding, setFunding] = useState([FUNDING_MIN, FUNDING_MAX]);
+    const [sortKey, setSortKey] = useState('');
     const [query, setQuery] = useState('');
 
     useEffect(() => {
+        handleSort();
+    }, [sortKey])
+
+    useEffect(() => {
         handleSearch(query, agencyFilters);
-    }, [agencyFilters]);
+    }, [agencyFilters, funding]);
 
     const searchQuery = useRef('');
     const searchOptions = {
@@ -32,17 +68,26 @@ export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrant
 
     const fuse = new Fuse(grants, searchOptions);
 
-    function handleSearch(query, filters, financial) {
-        console.log(query);
-        console.log(filters);
+    function handleSearch(query, filters) {
         const filterSet = new Set([...filters]);
-        console.log(filterSet);
         if (searchQuery.current !== query) searchQuery.current = query;
-        console.log(searchQuery)
         const searchResults = fuse.search(query);
         let grantResults = query ? searchResults.map((result) => result.item) : grants;
-        if (filters.length > 0) grantResults = grantResults.filter((grant) => filterSet.has(grant.AgencyName));
+        if (filters.length > 0) grantResults = grantResults.filter((grant) => (filterSet.has(grant.AgencyName)) && (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
+        else grantResults = grantResults.filter((grant) => (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
         setGrantsCopy(grantResults);
+        setSortKey('postDate');
+    }
+
+    function handleSort() {
+        if (!sortKey) return;
+        const propertyName = SORTING_KEYS.get(sortKey);
+        console.log(propertyName);
+        setGrantsCopy([...grantsCopy].sort((a, b) => propertyName.cleanValue(a[propertyName.propertyName]) < propertyName.cleanValue(b[propertyName.propertyName]) ? -1 : 1));
+    }
+
+    function handleSortChange(evt) {
+        setSortKey(evt.target.value);
     }
 
     return (
@@ -56,19 +101,21 @@ export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrant
                     setAgencyFilters={setAgencyFilters}
                     query={query}
                     setQuery={setQuery}
-                    handleSearch={handleSearch} />
+                    handleSearch={handleSearch}
+                    funding={funding}
+                    setFunding={setFunding}
+                    fundingOptions={[FUNDING_MIN, FUNDING_MAX, INCREMENT]}
+                />
                 <section>
                     <section>
                         <section className='flex items-center justify-between mb-4'>
                             <p className='text-2xl font-semibold'>{grantsCopy.length} results found</p>
-                            <section className='flex items-center gap-4'>
+                            <section className='flex items-center gap-4' onChange={handleSortChange} value={sortKey}>
                                 <p className='text-2xl font-semibold'>Sort By</p>
-                                <select className='border-1 border-neutral-300 rounded px-2 py-1.5' name="cars" id="cars">
-                                    <option value="volvo">Relevance</option>
-                                    <option value="saab">Alphabetical (A-Z)</option>
-                                    <option value="mercedes">Alphabetical (Z-A)</option>
-                                    <option value="audi">Grant Funding (High to Low)</option>
-                                    <option value="audi">Grant Funding (Low to High)</option>
+                                <select className='border-1 border-neutral-300 rounded px-2 py-1.5' name="sort" value={sortKey}>
+                                    {[...SORTING_KEYS.keys()].map((key) => (
+                                        <option value={key}>{SORTING_KEYS.get(key).dropDownTitle}</option>
+                                    ))}
                                 </select>
                             </section>
                         </section>
