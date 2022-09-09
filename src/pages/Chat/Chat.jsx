@@ -29,20 +29,20 @@ export default function Chat({user}) {
         createdAt: Date.now(),
       });
     });
-  }, [socket]);
+  }, [user._id]);
   
   useEffect(() => {
     arrivalMessage &&
       currentChat?.members.includes(arrivalMessage.sender) &&
       setMessages((prev) => [...prev, arrivalMessage]);
-  }, [arrivalMessage, currentChat, socket]);
+  }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(users)
     })
-  }, [user, socket])
+  }, [user._id,])
 
   useEffect(()=> {
     const getConversation = async () => {
@@ -54,7 +54,7 @@ export default function Chat({user}) {
       }
     }
     getConversation()
-  }, [user, socket])
+  }, [user])
 
   useEffect(() => {
     const getMessages = async () => {

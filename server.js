@@ -59,7 +59,6 @@ const getUser = (userId) => {
 io.on("connection", (socket) => {
   //when ceonnect
   console.log("a user connected.");
-
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
@@ -67,24 +66,28 @@ io.on("connection", (socket) => {
   });
 
   //send and get message
-  socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-    if (users.includes(receiverId)) {
-    const user = getUser(senderId);
-    io.to(user.socketId).emit("getMessage", {
-      senderId,
-      text,
-    });
-    } else {
-      const user = getUser(receiverId);
 
+  socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+    console.log(receiverId, senderId)
+    if (users.some((user) => user.userId === receiverId)) {
+      const user = getUser(receiverId);
       io.to(user.socketId).emit("getMessage", {
       senderId,
       text,
-    });
-    }
-
-    
+    }); 
+    } else {
+      socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+      const user = getUser(senderId);
+      io.to(user.socketId).emit("getMessage", {
+      senderId,
+      text,
+    }); 
   });
+    }
+      
+  });
+    
+      
 
   //when disconnect
   socket.on("disconnect", () => {
