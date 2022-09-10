@@ -6,6 +6,7 @@ import Message from '../../components/Message/Message';
 import Online from '../../components/Online/Online'
 import axios from 'axios';
 import {io} from 'socket.io-client'
+
 export default function Chat({user, grants}) {
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -13,8 +14,8 @@ export default function Chat({user, grants}) {
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const endpoint = 'https://grantguide.herokuapp.com/';
-  const socket = useRef(io(endpoint, {transports: ['websocket', 'polling']}))
+  const endpoint = 'ws://grantguide.herokuapp.com/';
+  const socket = useRef()
   const scrollRef = useRef()
   
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function Chat({user, grants}) {
         createdAt: Date.now(),
       });
     });
-  }, [user._id, socket, currentChat]);
+  }, []);
 
   useEffect(() => {
     arrivalMessage &&
@@ -39,7 +40,7 @@ export default function Chat({user, grants}) {
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(users)
     })
-  }, [user._id, socket, grants])
+  }, [user._id])
 
   useEffect(()=> {
     const getConversation = async () => {
@@ -51,7 +52,7 @@ export default function Chat({user, grants}) {
       }
     }
     getConversation()
-  }, [user])
+  }, [user._id])
 
   useEffect(() => {
     const getMessages = async () => {
@@ -63,7 +64,7 @@ export default function Chat({user, grants}) {
       }
     }
     getMessages();
-  }, [currentChat, socket])
+  }, [currentChat])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,6 +92,7 @@ export default function Chat({user, grants}) {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({behavior: "smooth",  block: 'nearest'})
   }, [messages])
+
   return(
     <>
       <div className="messenger flex flex-row h-[80vh]">
