@@ -15,7 +15,7 @@ export default function Online({onlineUsers, currentId, setCurrentChat}) {
     getFriends()
   }, [currentId])
 
-  console.log(mentors)
+  // console.log(mentors)
   
   return(
     <>
