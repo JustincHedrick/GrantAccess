@@ -18,7 +18,7 @@ export default function Chat({user, grants}) {
   const scrollRef = useRef()
   
   useEffect(() => {
-    socket.current = io("ws://localhost:3002");
+    socket.current = io(endpoint);
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
