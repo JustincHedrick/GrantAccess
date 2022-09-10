@@ -6,7 +6,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const io = require("socket.io")(3002, {
   cors: {
-    origin: "*"
+    origin: ['http://localhost:3000']
   }
 });
 
@@ -59,6 +59,7 @@ io.on("connection", (socket) => {
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     addUser(userId, socket.id);
+    console.log(users)
     io.emit("getUsers", users);
   });
 

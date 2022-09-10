@@ -17,7 +17,7 @@ export default function Chat({user, grants}) {
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const socket = useRef(io("ws://localhost:3002"))
+  const socket = useRef(io("http://localhost:3002"))
   const scrollRef = useRef()
 
   useEffect(() => {
