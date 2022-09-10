@@ -6,7 +6,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const io = require("socket.io")(3002, {
   cors: {
-    origin: ['http://localhost:3000', 'https://grantguide.herokuapp.com/']
+    origin: ['https://grantguide.herokuapp.com/']
   }
 });
 
