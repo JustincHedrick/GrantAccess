@@ -4,7 +4,8 @@ const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-const io = require("socket.io")(3002, {
+const port = process.env.PORT || 3001;
+const io = require("socket.io")(port, {
   cors: {
     origin: ['https://grantguide.herokuapp.com/']
   }
@@ -90,7 +91,7 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = process.env.PORT || 3001;
+
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
