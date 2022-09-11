@@ -72,23 +72,16 @@ io.on("connection", (socket) => {
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     //send message when both sender and reciever are connected
-    if (users.some((user) => user.userId === receiverId)) {
+
       const user = getUser(receiverId);
       io.to(user.socketId).emit("getMessage", {
       senderId,
       text,
     });
-    } else {
-      // send message when only sender is connected to socket
-      socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-      const user = getUser(senderId);
-      io.to(user.socketId).emit("getMessage", {
-      senderId,
-      text,
-    });
+    
+    
   });
-    }
-  });
+
 
   //when disconnect
   socket.on("disconnect", () => {
@@ -102,3 +95,16 @@ const port = process.env.PORT || 3001;
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
+
+
+    // if (users.some((user) => user.userId === receiverId)) {
+      // } else {
+          // send message when only sender is connected to socket
+    //   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+    //   const user = getUser(senderId);
+    //   io.to(user.socketId).emit("getMessage", {
+    //   senderId,
+    //   text,
+    // });
+  //       }
+  // });
