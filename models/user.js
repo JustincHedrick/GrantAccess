@@ -5,12 +5,14 @@ const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema({
-  firstName: { 
-    type: String, 
-    required: true },
-  lastName: { 
-    type: String, 
-    required: true },
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     unique: true,
@@ -49,14 +51,14 @@ const userSchema = new Schema({
 }, {
   timestamps: true,
   toJSON: {
-    transform: function(doc, ret) {
+    transform: function (doc, ret) {
       delete ret.password;
       return ret;
     }
   }
 });
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   // 'this' is the user doc
   if (!this.isModified('password')) return next();
   // the password is either new, or being updated

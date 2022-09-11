@@ -6,4 +6,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 //GET
 router.get('/', grantsCtrl.getGrants);
 
+//PUT
+router.put('/grant', grantsCtrl.saveGrant);
+
 module.exports = router;

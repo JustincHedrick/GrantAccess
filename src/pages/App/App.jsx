@@ -22,13 +22,21 @@ function App() {
   const [grants, setGrants] = useState([]);
   const [grantsCopy, setGrantsCopy] = useState(grants);
   
+  function processGrants(user, grants) {
+    return grants.map((grant) => {
+      const userSet = new Set([...grant.users]);
+      grant.isSaved = userSet.has(user._id);
+      return grant;
+    });
+  }
+
   useEffect(() => {
     const getGrants = async () => {
-      const grants = await grantsApi.getGrants();
+      let grants = await grantsApi.getGrants();
+      grants = processGrants(user, grants);
       setGrants(grants);
       setGrantsCopy(grants);
     }
-
     getGrants();
   }, []);
   // redid app.jsx to render nav and home page. I think it works well but may not be best solution
