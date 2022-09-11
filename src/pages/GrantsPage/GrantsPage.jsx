@@ -7,7 +7,7 @@ import SORTING_KEYS from './SortingKeys';
 import searchOptions from './FuseSettings';
 import './GrantsPage.css';
 
-export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrants }) {
+export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, setGrants }) {
     const FUNDING_MAX = 10000000;
     const FUNDING_MIN = 0;
     const INCREMENT = 100000;
@@ -61,12 +61,13 @@ export default function GrantsPage({ grants, grantsCopy, setGrantsCopy, setGrant
                     fundingOptions={[FUNDING_MIN, FUNDING_MAX, INCREMENT]}
                 />
                 <section>
-                    <ResultsBar grantsCopy={grantsCopy}
+                    <ResultsBar
+                        grantsCopy={grantsCopy}
                         sortingKeys={SORTING_KEYS}
                         setSortKey={setSortKey}
                         sortKey={sortKey}
                     />
-                    <GrantsList grantsCopy={grantsCopy} />
+                    <GrantsList user={user} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} grants={grants} setGrants={setGrants}/>
                 </section>
             </div>
         </main>

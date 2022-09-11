@@ -7,19 +7,21 @@ import Online from '../../components/Online/Online'
 import axios from 'axios';
 import {io} from 'socket.io-client'
 
-export default function Chat({user, grants}) {
+
+
+export default function Chat({user}) {
+
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const endpoint = 'https://grantguide.herokuapp.com/';
-  const socket = io(endpoint)
+  const socket = useRef(io("wss://grantguide.herokuapp.com/"))
   const scrollRef = useRef()
-  
+
   useEffect(() => {
-    socket.current = io(endpoint);
+    socket.current = io("wss://grantguide.herokuapp.com/");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -27,8 +29,8 @@ export default function Chat({user, grants}) {
         createdAt: Date.now(),
       });
     });
-  }, []);
-
+  }, [user._id]);
+  
   useEffect(() => {
     arrivalMessage &&
       currentChat?.members.includes(arrivalMessage.sender) &&
@@ -40,7 +42,7 @@ export default function Chat({user, grants}) {
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(users)
     })
-  }, [user._id])
+  }, [user._id,])
 
   useEffect(()=> {
     const getConversation = async () => {
@@ -52,7 +54,7 @@ export default function Chat({user, grants}) {
       }
     }
     getConversation()
-  }, [user._id])
+  }, [user])
 
   useEffect(() => {
     const getMessages = async () => {
@@ -64,7 +66,7 @@ export default function Chat({user, grants}) {
       }
     }
     getMessages();
-  }, [currentChat])
+  }, [currentChat, socket])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,14 +75,17 @@ export default function Chat({user, grants}) {
       text : newMessage,
       conversationId: currentChat._id,
     }
+
     const receiverId = currentChat.members.find(
       (member) => member !== user._id
     );
+
     socket.current.emit("sendMessage", {
       senderId: user._id,
       receiverId,
       text: newMessage
     })
+
     try {
       const res = await axios.post("/api/messages", message );
       setMessages([...messages, res.data]);
@@ -89,42 +94,50 @@ export default function Chat({user, grants}) {
       console.log(err);
     }
   }
+
   useEffect(() => {
     scrollRef.current?.scrollIntoView({behavior: "smooth",  block: 'nearest'})
   }, [messages])
 
   return(
     <>
+    <br />
+    <br />
+    <br />
+    <br />
       <div className="messenger flex flex-row h-[80vh]">
         <div className="chatMenu basis-1/5 text-white flex h-full">
           <div className="p-6 bg-emerald-900 w-full">
             <input type="search" placeholder='Search for mentors' class="text-black w-11/12 py-2.5 border-none"></input>
+              
                 {conversations.map(c => (
-                  <div onClick={() => setCurrentChat(c)} >
+                  <div onClick={() => setCurrentChat(c)} > 
                     <Conversation user={user} conversations={c} />
                   </div>
                 ))}
+              
           </div>
         </div>
         <div className="chatBox basis-2/5 text-white flex h-full w-full">
           <div className="p-6 bg-neutral-200 flex flex-col w-full relative">
-            { currentChat ?
+            { currentChat ? 
             <>
             <div className="chatBoxTop h-full overflow-y-auto pr-2">
-              {messages.map(m =>
+              {messages.map(m => 
                 <div ref={scrollRef}>
-                  <Message message={m} own={m.sender === user._id}/>
+                  <Message message={m} own={m.sender === user._id}/>  
                 </div>
               )}
             </div>
             <div className="chatBoxBottom mt-1.5 flex items-center justify-between">
-              <textarea
-              placeholder='Write something...'
+              <textarea 
+              placeholder='Write something...' 
               className='w-4/5 h-24 p-2 text-black'
               onChange={(e) => setNewMessage(e.target.value)}
               value={newMessage}>
+
               </textarea>
-              <button
+              <button 
               className='h-10 w-16 rounded border-none bg-emerald-900 cursor-pointer'
               onClick={handleSubmit}>
                 Send
