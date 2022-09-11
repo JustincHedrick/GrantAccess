@@ -57,10 +57,10 @@ export default function NavBar({ user, setUser }) {
 
                   <Dropdown.Header >
 
-                    <span className="block text-sm font-medium truncate">
+                    <span className="block text-base font-medium truncate" >
                       {user.email}
                     </span>
-                    <span className="block text-sm font-medium truncate">
+                    <span className="block text-base font-medium truncate">
                       {user.firstName}
                     </span>
                   </Dropdown.Header>

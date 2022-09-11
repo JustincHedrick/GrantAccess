@@ -47,10 +47,16 @@
 
 }
 
+.text-sm{
+    bottom: 2px;
+    left: 5px;
+    line-height: .15rem;
+}
+
 .signUpDiv input {
     border: 1px solid black;
     border-radius: 4px;
-    width: 45vmin;
+    width: 30vmin;
     height: 4vmin;
 }
 
