@@ -2,15 +2,16 @@ import * as grantsAPI from '../../utilities/grants-api';
 import './GrantCard.css'
 import { SavedIcon, SaveIcon } from '../SaveIcons/SaveIcons';
 
-export default function GrantsCards({ user, grant, grantsCopy, setGrantsCopy }) {
+export default function GrantsCards({ user, grant, grantsCopy, setGrantsCopy, grants, setGrants }) {
     async function saveGrant(grantId, userId) {
         let grant = await grantsAPI.saveGrant({ grantId, userId });
         console.log(grant);
         const userSet = new Set(...[grant.users]);
         grant.isSaved = userSet.has(user._id);
-        const grantIndex = grantsCopy.findIndex((elem) => elem._id === grant._id);
-        console.log(grantIndex);
-        setGrantsCopy([...grantsCopy.slice(0, grantIndex), grant, ...grantsCopy.slice(grantIndex + 1)]);
+        const grantIndexCopy = grantsCopy.findIndex((elem) => elem._id === grant._id);
+        const grantIndex = grants.findIndex((elem) => elem._id === grant._id);
+        setGrantsCopy([...grantsCopy.slice(0, grantIndexCopy), grant, ...grantsCopy.slice(grantIndexCopy + 1)]);
+        setGrants([...grants.slice(0, grantIndex), grant, ...grants.slice(grantIndex + 1)]);
     }
 
     function handleClick(evt) {

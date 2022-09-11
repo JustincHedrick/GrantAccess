@@ -67,7 +67,7 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
                         setSortKey={setSortKey}
                         sortKey={sortKey}
                     />
-                    <GrantsList user={user} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} />
+                    <GrantsList user={user} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} grants={grants} setGrants={setGrants}/>
                 </section>
             </div>
         </main>
