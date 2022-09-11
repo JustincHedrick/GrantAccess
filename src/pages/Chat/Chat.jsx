@@ -15,7 +15,7 @@ export default function Chat({user, grants}) {
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const endpoint = 'https://grantguide.herokuapp.com/';
-  const socket = io(endpoint)
+  const socket = useRef()
   const scrollRef = useRef()
   
   useEffect(() => {
