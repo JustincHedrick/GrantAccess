@@ -28,7 +28,7 @@ export default function Chat({user, grants}) {
         createdAt: Date.now(),
       });
     });
-  }, [user._id]);
+  }, [user._id, conversations]);
 
   useEffect(() => {
     arrivalMessage &&
