@@ -4,13 +4,15 @@ const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const port = process.env.PORT || 3001;
 const http = require('http').createServer(app);
 
 app.use(cors());
 
 const io = require("socket.io")(http, {
   cors: {
-    origin: ['https://grantguide.herokuapp.com/']
+    origin: ['https://grantguide.herokuapp.com/'],
+    methods: ["GET", "POST"],
   }
 });
 
@@ -72,16 +74,23 @@ io.on("connection", (socket) => {
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     //send message when both sender and reciever are connected
-
+    if (users.some((user) => user.userId === receiverId)) {
       const user = getUser(receiverId);
       io.to(user.socketId).emit("getMessage", {
       senderId,
       text,
     });
-    
-    
+    } else {
+      // send message when only sender is connected to socket
+      socket.on("sendMessage", ({ senderId, receiverId, text }) => {
+      const user = getUser(senderId);
+      io.to(user.socketId).emit("getMessage", {
+      senderId,
+      text,
+    });
   });
-
+    }
+  });
 
   //when disconnect
   socket.on("disconnect", () => {
@@ -90,21 +99,8 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = process.env.PORT || 3001;
+
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
-
-
-    // if (users.some((user) => user.userId === receiverId)) {
-      // } else {
-          // send message when only sender is connected to socket
-    //   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
-    //   const user = getUser(senderId);
-    //   io.to(user.socketId).emit("getMessage", {
-    //   senderId,
-    //   text,
-    // });
-  //       }
-  // });
