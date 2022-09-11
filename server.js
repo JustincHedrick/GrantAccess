@@ -1,10 +1,13 @@
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
 const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-const http = require('http').createServer();
+const http = require('http').createServer(app);
+
+app.use(cors());
+
 const io = require("socket.io")(http, {
   cors: {
     origin: ['https://grantguide.herokuapp.com/']
@@ -24,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(cors())
+
 
 // Middleware to verify token and assign user object of payload to req.user.
 // Be sure to mount before routes
