@@ -56,12 +56,7 @@ export default function NavBar({ user, setUser }) {
               <div className='flex items-center gap-6'>
                 <MessageButton />
 
-<<<<<<< Updated upstream
-                <Dropdown label={user.firstName}>
-
-=======
-                <Dropdown classNames={'focus-ring-'} focus={false} color={'transparent'} arrowIcon={false} label={<ProfileIcon />}>
->>>>>>> Stashed changes
+                <Dropdown focus={false} color={'transparent'} arrowIcon={false} label={<ProfileIcon />}>
                   <Dropdown.Header >
 
                     <span className="block text-base font-medium truncate" >

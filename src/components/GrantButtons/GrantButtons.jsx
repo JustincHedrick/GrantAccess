@@ -15,7 +15,7 @@ export default function GrantButtons() {
           hover:bg-primary-500
           rounded text-sm
           px-5
-          py-2
+          py-4
           text-center"
         >
           FIND GRANTS
@@ -36,7 +36,7 @@ export default function GrantButtons() {
           rounded
           text-sm
           px-5
-          py-2
+          py-4
           text-center"
         >
           FIND GUIDES

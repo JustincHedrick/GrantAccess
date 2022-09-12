@@ -21,14 +21,14 @@ export default function Header() {
                     <a href='/aboutus'>
                         <button
                             type="button"
-                            className="text-primary-500 tracking-widest font-medium hover:text-white bg-white border border-green-900 hover:bg-primary-500 rounded text-sm px-12 py-3">
+                            className="text-primary-500 tracking-widest font-medium hover:text-white bg-white border border-green-900 hover:bg-primary-500 rounded text-sm px-12 py-5">
                             LEARN MORE
                         </button>
                     </a>
                     <a href='/grants'>
                         <button
                             type="button"
-                            className="text-white font-medium tracking-widest bg-primary-500 rounded text-sm px-12 py-3">
+                            className="text-white font-medium tracking-widest bg-primary-500 rounded text-sm px-12 py-5">
                             GET STARTED
                         </button>
                     </a>
