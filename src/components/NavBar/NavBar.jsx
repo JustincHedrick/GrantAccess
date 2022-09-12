@@ -8,6 +8,7 @@ import './NavBar.css';
 import GrantButtons from '../GrantButtons/GrantButtons';
 import GrantLogoHeader from '../GrantLogoHeader/GrantLogoHeader';
 import MessageButton from '../MessageButton/MessageButton';
+import ProfileIcon from '../ProfileIcon/ProfileIcon';
 // import { RiMessage2Line } from "react-icons/ri";
 
 
@@ -44,7 +45,9 @@ export default function NavBar({ user, setUser }) {
         <div className='md:flex lg:flex xl:flex sm:flex items-right justify-between py-8 md:px-8 px-8'>
           <div className='flex items-center gap-8'>
             {/* logo */}
-            <GrantLogoHeader />
+            <Link to={'/'}>
+              <GrantLogoHeader />
+            </Link>
             {user ? <GrantButtons /> : null}
           </div>
           {user ?
@@ -53,8 +56,12 @@ export default function NavBar({ user, setUser }) {
               <div className='flex items-center gap-6'>
                 <MessageButton />
 
+<<<<<<< Updated upstream
                 <Dropdown label={user.firstName}>
 
+=======
+                <Dropdown classNames={'focus-ring-'} focus={false} color={'transparent'} arrowIcon={false} label={<ProfileIcon />}>
+>>>>>>> Stashed changes
                   <Dropdown.Header >
 
                     <span className="block text-base font-medium truncate" >

@@ -5,14 +5,17 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/flowbite/**/*.js",
-    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
-    // './node_modules/tw-elements/dist/js/**/*.js'
-
+    './node_modules/flowbite/**/*.js',
+    "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
-
+  plugins: [
+    require('flowbite/plugin')
+  ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-pattern': "url('./img/header_image.png')",
+      },
       fontFamily: {
         'sans': ['Inter', ...defaultTheme.fontFamily.sans]
       },
@@ -24,15 +27,15 @@ module.exports = {
           500: '#134736',
           700: '#0F382A'
         },
-        'neutral' : {
+        'neutral': {
           50: '#DFDFDF',
           300: '#B8B8B8',
           500: '#8F8F8F',
           700: '#676767',
           900: '#676767'
         },
-        'error' : '#FF5151',
-        'shade' : {
+        'error': '#FF5151',
+        'shade': {
           0: '#FAFAFA',
           100: '#23242C'
         }
@@ -42,9 +45,5 @@ module.exports = {
         6: '6px'
       }
     }
-  },
-  plugins: [
-    // require('tw-elements/dist/plugin')
-
-  ],
+  }
 }

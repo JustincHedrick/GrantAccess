@@ -9,11 +9,9 @@ export default function HomePage() {
 
 
   return(
-    <>
-    <Header />
-    <HowItWorks />
-
-
-    </>
+    <div className='flex flex-col gap-12 pt-12'>
+      <Header />
+      <HowItWorks />
+    </div>
   )
 }
