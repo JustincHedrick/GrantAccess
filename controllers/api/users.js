@@ -23,6 +23,7 @@ async function getProfile(req, res){
   res.json(userProfile);
 }
 
+
 async function update(req, res){
   console.log(req.body);
   const user = await User.findById(req.user._id)
@@ -37,6 +38,7 @@ async function update(req, res){
   user.jobDescription=req.body.jobDescription
   console.log(user);
   user.save();
+  // res.redirect(`/profile`)
 }
 
 

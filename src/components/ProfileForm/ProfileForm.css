@@ -19,25 +19,14 @@
     text-shadow: 2px 5px 10px #71719c;
 }
 
-/* label{
-display: inline-grid;
-color:rgb(12, 73, 126);
-font-style: normal;
-font-weight: 800;
-font-size: 20px;
-display: table-cell;
-padding: 0 5px;
-vertical-align: middle;
-} */
 
 .photo{
     width: 25vmin;
 }
 
-textarea{
-    width: 25vmin;
-}
-.save-btn {
-    width: 15vmin;
-    font-size: 25px;
+
+#save-btn {
+    margin: 0 0 0 45%;
+    width: 20vmin;
+    /* font-size: 25px; */
 }

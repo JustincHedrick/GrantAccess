@@ -3,16 +3,15 @@ import {useState, useEffect } from 'react'
 import { Card, Dropdown } from 'flowbite-react';
 import { checkToken } from '../../utilities/users-service'
 import * as usersApi from "../../utilities/users-api";
-
 import "./ProfilePage.css";
 
 export default function ProfilePage({ user }) {
 
   const [profile, setProfile] = useState({});
 useEffect(() => {
-  async function updateUserProfile(firstName, lastName, email, password, role, organization, location, about, experience) {
+  async function updateUserProfile(firstName, lastName, email, role, organization, location, about, experience, jobDescription) {
      const profile = await usersApi.getProfile();
-    //  console.log(profile);
+     console.log(profile);
      setProfile(profile);
 
       //     navigate('/userprofile');
@@ -63,10 +62,13 @@ useEffect(() => {
         alt="Bonnie image"
       />
       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-        {user.firstName} {user.lastName}
+        {profile&&profile.firstName}
+        {/* {user.firstName}  */}
+        {/* [setProfile] */}
+        {user.lastName}
       </h5>
       <span className="text-sm text-gray-500 dark:text-gray-400">
-        {user.role}
+        {/* {user.role} */}
       </span>
       <div className="mt-4 flex space-x-3 lg:mt-6">
         <a
@@ -90,7 +92,7 @@ useEffect(() => {
   <Card>
     <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
     <h1>About</h1>
-     <p>{user.about} </p> 
+     {/* <p>{user.about} </p>  */}
     </h1>
   </Card>
 <br></br>
@@ -98,9 +100,12 @@ useEffect(() => {
   <Card>
     <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Experience</h1>
     <p className="font-normal text-gray-700 dark:text-gray-400">
-     <h1>{user.experience} </h1> 
-          {user.organization}<br></br>
-          {user.location}
+     {/* <h1>{user.experience} </h1>  */}
+        <p className="text-sm text-gray-700"> 
+        {/* {user.organization} */}
+        {/* {user.location} */}
+        </p> 
+          
     </p>
   </Card>
     {/* <div> */}

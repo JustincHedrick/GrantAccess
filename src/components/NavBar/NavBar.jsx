@@ -53,16 +53,17 @@ export default function NavBar({ user, setUser }) {
               <div className='flex items-center gap-6'>
                 <MessageButton />
 
-                <Dropdown label="dropdown">
+                <Dropdown label={user.firstName}>
 
                   <Dropdown.Header >
 
-                    <span className="block text-sm font-medium truncate">
+                    <span className="block text-base font-medium truncate" >
+                      Welcome, {user.firstName}
+                    </span>
+                    {/* <hr></hr> */}
+                    {/* <span className="block text-base font-medium truncate">
                       {user.email}
-                    </span>
-                    <span className="block text-sm font-medium truncate">
-                      {user.firstName}
-                    </span>
+                    </span> */}
                   </Dropdown.Header>
                   <Dropdown.Item>
                     <a href="/profile">View My Profile</a>
