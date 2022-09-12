@@ -115,7 +115,8 @@ export default class signup extends Component {
         <label for="text" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-9">Links (optional)</label>
     </div>
   </div>
-  <button class="mt-5 focus:outline-none justify-center text-white bg-emerald-900 hover:bg-green-800 font-medium rounded-lg text-md px-10 py-3 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="submit" disabled={disable}>Sign Up</button>
+  <button 
+  class="mt-5 focus:outline-none justify-center text-white bg-emerald-900 hover:bg-green-800 font-medium rounded-lg text-md px-10 py-3 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="submit" disabled={disable}>Sign Up</button>
 </form>
 </div>
 {/* </div>
