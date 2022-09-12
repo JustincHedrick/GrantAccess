@@ -21,7 +21,7 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [grants, setGrants] = useState([]);
   const [grantsCopy, setGrantsCopy] = useState(grants);
-  
+
   function processGrants(user, grants) {
     return grants.map((grant) => {
       const userSet = new Set([...grant.users]);
@@ -48,32 +48,36 @@ function App() {
         {user ?
           <>
             <NavBar user={user} setUser={setUser} />
-            <Routes>
-              {/* Route components in here */}
-              <Route path="/profile" element={<ProfilePage user={user} />} />
-              <Route path="/" element={<HomePage user={user} />} />
-              <Route path="/grants" element={<GrantsPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
-              <Route path="/selectedgrant" element={<SelectedGrant user={user} />} />
-              <Route path="/editprofile" element={<EditProfile />} />
-              <Route path="/chat" element={<Chat user={user} grants={grants}/>} />
-              <Route path="/faq" element={<FaqPage />} />
-              <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
-              <Route path="/aboutus" element={<AboutUsPage />} />
-              <Route path="/findamentor" element={<FindAMentor />} />
-            </Routes>
+            <div className='container-wrapper px-4'>
+              <Routes>
+                {/* Route components in here */}
+                <Route path="/profile" element={<ProfilePage user={user} />} />
+                <Route path="/" element={<HomePage user={user} />} />
+                <Route path="/grants" element={<GrantsPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
+                <Route path="/selectedgrant" element={<SelectedGrant user={user} />} />
+                <Route path="/editprofile" element={<EditProfile />} />
+                <Route path="/chat" element={<Chat user={user} grants={grants} />} />
+                <Route path="/faq" element={<FaqPage />} />
+                <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
+                <Route path="/aboutus" element={<AboutUsPage />} />
+                <Route path="/findamentor" element={<FindAMentor />} />
+              </Routes>
+            </div>
           </>
           :
           // changed non-users to see home page and brought in nav-bar - go crazy - try to style like wireframes
           <>
             <NavBar user={user} setUser={setUser} />
-            <Routes>
-              {/* <Route path="/howitworks" element={<HowItWorksPage />}/> */}
-              <Route path="/aboutus" element={<AboutUsPage />} />
-              <Route path="/" element={<HomePage />} />
-              <Route path="/faq" element={<FaqPage />} />
-              <Route path="/login" element={<AuthPage setUser={setUser} />} />
-              <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
-            </Routes>
+            <div className='container-wrapper px-4'>
+              <Routes>
+                {/* <Route path="/howitworks" element={<HowItWorksPage />}/> */}
+                <Route path="/aboutus" element={<AboutUsPage />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/faq" element={<FaqPage />} />
+                <Route path="/login" element={<AuthPage setUser={setUser} />} />
+                <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
+              </Routes>
+            </div>
           </>
         }
         <Footer />

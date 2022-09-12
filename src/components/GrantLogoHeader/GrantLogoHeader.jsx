@@ -2,7 +2,7 @@ export default function GrantLogoHeader() {
   return (
     <div className='flex items-center gap-2'>
       <h1 className="text-4xl font-semibold">
-        <a href='/'>Grant Guide </a>
+        Grant Guide
       </h1>
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 20C0 24.8449 1.72275 29.2875 4.58909 32.7485L35.3801 7.21437C31.7115 2.80612 26.1834 0 20 0C8.95431 0 0 8.95431 0 20Z" fill="#32A680" />
