@@ -17,11 +17,11 @@ export default function Chat({user}) {
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const socket = useRef(io("wss://grantguide.herokuapp.com/"))
+  const socket = useRef(io("http://localhost:3000"))
   const scrollRef = useRef()
 
   useEffect(() => {
-    socket.current = io("wss://grantguide.herokuapp.com/");
+    socket.current = io("ws://localhost:3000");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,

@@ -1,6 +1,7 @@
 import React from "react"
+import GuideCard from "../../components/GuideCard/GuideCard"
 
-export default function FindAMentor() {
+export default function FindGuide({user}) {
 
     return(
 	<>

@@ -27,3 +27,7 @@ export function checkToken() {
 export function getUser(userId) {
   return sendRequest(`${BASE_URL}/${userId}`)
 }
+
+export function getGuides() {
+  return sendRequest(`${BASE_URL}`);
+}

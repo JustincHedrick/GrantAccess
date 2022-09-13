@@ -13,14 +13,16 @@ import Chat from '../Chat/Chat'
 import SelectedGrant from '../SelectedGrant/SelectedGrant';
 import Footer from '../../components/Footer/Footer'
 import FaqPage from '../Faq/FaqPage'
-import FindAMentor from '../FindAMentor/FindAMentor';
+import FindGuide from '../FindGuide/FindGuide';
 import * as grantsApi from "../../utilities/grants-api";
+import * as userApi from "../../utilities/users-api"
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
   const [grants, setGrants] = useState([]);
   const [grantsCopy, setGrantsCopy] = useState(grants);
+  const [guides, setGuides] = useState([]);
 
   function processGrants(user, grants) {
     return grants.map((grant) => {
@@ -41,6 +43,16 @@ function App() {
   }, []);
   // redid app.jsx to render nav and home page. I think it works well but may not be best solution
 
+  useEffect(() => {
+    const getGuides = async () => {
+      let guides = await userApi.getGuides();
+      console.log(guides)
+      setGuides(guides);
+    }
+    getGuides();
+    
+  }, [])
+
   return (
     <>
       <main className="App">
@@ -60,7 +72,8 @@ function App() {
                 <Route path="/faq" element={<FaqPage />} />
                 <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
                 <Route path="/aboutus" element={<AboutUsPage />} />
-                <Route path="/findamentor" element={<FindAMentor />} />
+                <Route path="/findguide" element={<FindGuide user={user} />} />
+                
               </Routes>
             </div>
           </>
