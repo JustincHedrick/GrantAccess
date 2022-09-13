@@ -10,8 +10,7 @@ export default function ProfilePage({ user }) {
   const [profile, setProfile] = useState({});
 useEffect(() => {
   async function updateUserProfile(firstName, lastName, email, role, organization, location, about, experience, jobDescription) {
-     const profile = await usersApi.getProfile();
-     console.log(profile);
+     const profile = await usersApi.getUser(user._id);
      setProfile(profile);
 
       //     navigate('/userprofile');

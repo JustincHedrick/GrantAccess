@@ -7,16 +7,15 @@ module.exports = {
   login,
   checkToken,
   update,
-  getProfile,
   getUser,
   getGuides
 };
 
 async function getGuides(req, res) {
   try{
-  const guides = await User.find({});
+  const guides = await User.find({isMentor: true});
   console.log(guides)
-  res.status.json(guides)
+  res.json(guides)
   } catch(err) {
     res.status(400).json()
   }
@@ -26,13 +25,6 @@ async function getUser(req, res) {
     const user = await User.findById(req.params.userid)
     res.status(200).json(user)
 }
-
-async function getProfile(req, res){
-  const userProfile = await User.findOne({_id: req.user._id})
-  // console.log(userProfile)
-  res.json(userProfile);
-}
-
 
 async function update(req, res){
   console.log(req.body);
@@ -92,3 +84,14 @@ function checkToken(req, res) {
   console.log('req.user', req.user);
   res.json(req.exp);
 }
+
+
+// async function getGuides(req, res) {
+//   try{
+//   const guides = await User.find({isMentor: true});
+//   console.log(guides)
+//   res.json(guides)
+//   } catch(err) {
+//     res.status(400).json()
+//   }
+// }

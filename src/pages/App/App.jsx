@@ -72,7 +72,7 @@ function App() {
                 <Route path="/faq" element={<FaqPage />} />
                 <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
                 <Route path="/aboutus" element={<AboutUsPage />} />
-                <Route path="/findguide" element={<FindGuide user={user} />} />
+                <Route path="/findguide" element={<FindGuide user={user} guides={guides}/>} />
                 
               </Routes>
             </div>

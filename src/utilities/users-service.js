@@ -14,7 +14,7 @@ export async function signUp(userData) {
   return getUser();
 }
 
-export function getToken() {
+export function getToken(userid) {
   // getItem will return null if the key does not exist
   const token = localStorage.getItem('token');
   if (!token) return null;
@@ -28,8 +28,8 @@ export function getToken() {
   return token;
 }
 
-export function getUser() {
-  const token = getToken();
+export function getUser(userid) {
+  const token = getToken(userid);
   return token ?
     JSON.parse(atob(token.split('.')[1])).user
     :

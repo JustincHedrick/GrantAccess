@@ -17,11 +17,11 @@ export default function Chat({user}) {
   const [newMessage, setNewMessage] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const socket = useRef(io("http://localhost:3000"))
+  const socket = useRef(io("http://localhost:3002"))
   const scrollRef = useRef()
 
   useEffect(() => {
-    socket.current = io("ws://localhost:3000");
+    socket.current = io("http://localhost:3002");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,

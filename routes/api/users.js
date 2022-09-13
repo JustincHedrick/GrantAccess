@@ -14,8 +14,6 @@ router.post('/login', usersCtrl.login);
 
 router.post('/update', usersCtrl.update);
 
-router.get('/', usersCtrl.getProfile);
-
 router.get('/:userid', usersCtrl.getUser);
 
 router.get('/', usersCtrl.getGuides)
