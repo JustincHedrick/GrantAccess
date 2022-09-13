@@ -17,7 +17,7 @@ export default class signup extends Component {
         about: '',
         jobDescription: '',
         error: '',
-        isMentor: null,
+        isMentor: false,
       };
     
       handleSubmit = async (evt) => {
@@ -42,6 +42,10 @@ export default class signup extends Component {
       }
     
       handleChange = (evt) => {
+        // console.log(evt.target.checked, evt.target.name)
+        if (evt.target.checked === true && evt.target.id === "mentorRadio") this.state.isMentor = true;
+        if (evt.target.checked === true && evt.target.id === "applicantRadio") this.state.isMentor = false;
+        console.log(this.state.isMentor)
         this.setState({
           [evt.target.name]: evt.target.value,
           error: ''
@@ -108,6 +112,25 @@ export default class signup extends Component {
         <textarea name="jobDescription" class="block py-5 px-5 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={this.state.jobDescription} onChange={this.handleChange} />
         <label for="text" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Job Description</label>
     </div>
+    <div class="relative z-0 mb-6 w-full group"> 
+      <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+          <div class="flex items-center pl-3">
+            <input id="applicantRadio" type="radio" value={this.state.isApplicant} onChange={this.handleChange} name="mentorRadio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
+            <label for="horizontal-list-radio-applicant" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Applicant</label>
+        </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+          <div class="flex items-center pl-1">
+            <input id="mentorRadio" type="radio" checked={this.state.isMentor === true} value={this.state.isMentor} onChange={this.handleChange} name="mentorRadio" class="w-0.5 h-0.5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
+            <label for="horizontal-list-radio-mentor" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Mentor</label>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <br />
+    <br /> 
+    <br />
     <div class="relative z-0 mb-6 w-full group">
         <input type="text" name="links" class="block py-2.5 px-0 mb-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={this.state.links} onChange={this.handleChange} />
         <input type="text" name="links" class="block py-2.5 px-0 mb-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={this.state.links} onChange={this.handleChange} />

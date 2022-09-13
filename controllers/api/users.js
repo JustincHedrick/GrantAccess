@@ -8,9 +8,19 @@ module.exports = {
   checkToken,
   update,
   getProfile,
-  getUser
+  getUser,
+  getGuides
 };
 
+async function getGuides(req, res) {
+  try{
+  const guides = await User.find({});
+  console.log(guides)
+  res.status.json(guides)
+  } catch(err) {
+    res.status(400).json()
+  }
+}
 
 async function getUser(req, res) {
     const user = await User.findById(req.params.userid)

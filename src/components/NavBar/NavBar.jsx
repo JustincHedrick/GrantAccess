@@ -25,7 +25,7 @@ export default function NavBar({ user, setUser }) {
   //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let UserLinks = [
     { name: "GRANTS", link: "/grants", icon: "Find grants", },
-    { name: "FIND A MENTOR", link: "/findamentor", icon: "Find a mentor" },
+    { name: "FIND A MENTOR", link: "/findguide", icon: "Find a mentor" },
     { name: "CHAT", link: "/chat", icon: <ChatIcon className="h-5 w-5 text-blue-500" /> },
     { name: "PROFILE", link: "/profile", icon: <UserCircleIcon className="h-5 w-5 text-blue-500" /> },
     { name: "Log-out", link: "/", icon: "Log-out", onClick: handleLogOut }

@@ -21,7 +21,7 @@ export default function GrantButtons() {
           FIND GRANTS
         </button>
       </Link>
-      <Link to={'/'}>
+      <Link to={'/findguide'}>
         <button
           type="button"
           class="

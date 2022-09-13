@@ -47,7 +47,7 @@ const userSchema = new Schema({
   },
   isMentor: {
     type: Boolean,
-  }
+  },
 }, {
   timestamps: true,
   toJSON: {
@@ -56,6 +56,8 @@ const userSchema = new Schema({
       return ret;
     }
   }
+}, {
+  collection: 'users'
 });
 
 userSchema.pre('save', async function (next) {

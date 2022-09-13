@@ -18,4 +18,6 @@ router.get('/', usersCtrl.getProfile);
 
 router.get('/:userid', usersCtrl.getUser);
 
+router.get('/', usersCtrl.getGuides)
+
 module.exports = router;
