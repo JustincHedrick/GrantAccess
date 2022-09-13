@@ -2,6 +2,7 @@ const Grant = require('../../models/grants');
 
 module.exports = {
   getGrants,
+  getGrant,
   saveGrant
 }
 
@@ -9,6 +10,13 @@ async function getGrants(req, res, next) {
   const grants = await Grant.find();
   res.json(grants);
 };
+
+async function getGrant(req, res) {
+  console.log(req.params.grantId);
+  const grant = await Grant.findById(req.params.grantId);
+  console.log(grant);
+  return res.json(grant);
+}
 
 async function saveGrant(req, res) {
   let grant = await Grant.findOne({ _id: req.body.grantId, users: req.body.userId });
