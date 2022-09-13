@@ -10,7 +10,7 @@ import GrantsPage from '../GrantsPage/GrantsPage';
 import EditProfile from '../EditProfile/EditProfile';
 import AboutUsPage from '../AboutUs/AboutUsPage';
 import Chat from '../Chat/Chat'
-import SelectedGrant from '../SelectedGrant/SelectedGrant';
+import GrantDetailPage from '../GrantDetailPage/GrantDetailPage';
 import Footer from '../../components/Footer/Footer'
 import FaqPage from '../Faq/FaqPage'
 import FindAMentor from '../FindAMentor/FindAMentor';
@@ -54,7 +54,7 @@ function App() {
                 <Route path="/profile" element={<ProfilePage user={user} />} />
                 <Route path="/" element={<HomePage user={user} />} />
                 <Route path="/grants" element={<GrantsPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
-                <Route path="/selectedgrant" element={<SelectedGrant user={user} />} />
+                <Route path='/grants/:grantId' element={<GrantDetailPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
                 <Route path="/editprofile" element={<EditProfile />} />
                 <Route path="/chat" element={<Chat user={user} grants={grants} />} />
                 <Route path="/faq" element={<FaqPage />} />
