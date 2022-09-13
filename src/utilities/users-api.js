@@ -4,7 +4,7 @@ import sendRequest from './send-request';
 const BASE_URL = '/api/users';
 
 
-export function getProfile() {
+export function getGuides() {
   return sendRequest(`${BASE_URL}`);
 }
 
@@ -28,6 +28,3 @@ export function getUser(userId) {
   return sendRequest(`${BASE_URL}/${userId}`)
 }
 
-export function getGuides() {
-  return sendRequest(`${BASE_URL}`);
-}

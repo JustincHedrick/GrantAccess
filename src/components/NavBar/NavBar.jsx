@@ -11,8 +11,6 @@ import MessageButton from '../MessageButton/MessageButton';
 import ProfileIcon from '../ProfileIcon/ProfileIcon';
 // import { RiMessage2Line } from "react-icons/ri";
 
-
-
 export default function NavBar({ user, setUser }) {
 
   //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change

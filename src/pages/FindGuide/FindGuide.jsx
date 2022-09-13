@@ -1,15 +1,32 @@
 import React from "react"
-import GuideCard from "../../components/GuideCard/GuideCard"
+import GuideCard from "../../components/GuideCard/GuideCard";
+import { SearchCircleIcon } from '@heroicons/react/solid';
 
-export default function FindGuide({user}) {
+
+export default function FindGuide({user, guides}) {
 
     return(
 	<>
-		<br></br>
-		<br></br>
-		<br></br>
-		<br></br>
-        <div className="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
+		<main className='GrantsPage py-8 px-4'>
+			<h1 className='text-4xl font-bold mb-8'>Find Guides</h1>
+			<label htmlFor="search" className="relative text-gray-400 focus-within:text-gray-600 block w-80">
+    	<SearchCircleIcon className="pointer-events-none w-7 h-7 absolute top-1/2 transform -translate-y-1/2 left-1" />
+      <input 
+				type="text" 
+				name="search" 
+				id="search" 
+				placeholder="" 
+				className="form-input w-full py-3 px-4 indent-4" />
+			</label>
+			<div className='grid grid-cols-2 gap-x-8'>
+				{guides.map((g,idx) => ( 
+					<div>
+            <GuideCard user={user} guides={g} key={idx}/>
+          </div>
+				))}
+			</div>
+		</main>
+        {/* <div className="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
 	<div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
 		<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
 		<div className="flex flex-col">
@@ -39,7 +56,7 @@ export default function FindGuide({user}) {
 			</svg>
 		</a>
 	</div>
-</div>
+</div> */}
 </>
     )
 }
