@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import * as conversationApi from "../../utilities/conversation-api";
 
 export default function GuideCard({guides, user, guideId}) {
-  
+
   const [guideInfo, setGuideInfo] = useState(guides);
 
   // const navigate = useNavigate()
