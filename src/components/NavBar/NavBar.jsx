@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import * as grantsApi from "../../utilities/grants-api";
 import { BeakerIcon, ChatIcon, CogIcon, InboxIcon, UserCircleIcon } from '@heroicons/react/solid';
@@ -12,7 +12,7 @@ import ProfileIcon from '../ProfileIcon/ProfileIcon';
 // import { RiMessage2Line } from "react-icons/ri";
 
 export default function NavBar({ user, setUser }) {
-
+  let navigate = useNavigate();
   //  This may have to change, its the best way I thought to get links for users and non users in the navbar, feel free to change
   let NonUserLinks = [
     { name: "HOME", link: "/", icon: <BeakerIcon className="h-5 w-5 text-blue-500" /> },
@@ -34,6 +34,7 @@ export default function NavBar({ user, setUser }) {
     userService.logOut();
     // Update user state in App
     setUser(null);
+    navigate('/');
   }
 
 
@@ -53,23 +54,17 @@ export default function NavBar({ user, setUser }) {
               {/* dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800 shadow-xl */}
               <div className='flex items-center gap-6'>
                 <MessageButton />
-
                 <Dropdown color={'transparent'} arrowIcon={false} label={<ProfileIcon />}>
                   <Dropdown.Header >
-
                     <span className="block text-base font-medium truncate" >
                       Welcome, {user.firstName}
                     </span>
-                    {/* <hr></hr> */}
-                    {/* <span className="block text-base font-medium truncate">
-                      {user.email}
-                    </span> */}
                   </Dropdown.Header>
                   <Dropdown.Item>
-                    <a href="/profile">View My Profile</a>
+                    <Link to={"/profile"}>View My Profile</Link>
                   </Dropdown.Item>
                   <Dropdown.Item>
-                    <a href="/editprofile"> Account Settings </a>
+                    <Link to={"/editprofile"}> Account Settings </Link>
                   </Dropdown.Item>
 
                   <Dropdown.Divider />
@@ -78,35 +73,17 @@ export default function NavBar({ user, setUser }) {
                   </Dropdown.Item>
                 </Dropdown>
               </div>
-
-              {/* <ul className="md:flex md:items-center"> */}
-              {
-                // UserLinks.map((Link)=> (
-
-                //   <li key={Link.name} className='md:ml-8 text-xl'>
-                //     <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500' onClick={Link.onClick}>
-                //       {Link.icon} </a>
-                //   </li>
-                // ))
-              }
-              {/* dummie logout button > Logout button works <*/}
-              {/* <li>
-            <a href="/" onClick={handleLogOut}>Log Out</a>
-          </li> */}
-              {/* </ul> */}
             </>
             :
-            // added functionality for non-users to see a nav bar
             <>
-              <ul className="md:flex md:items-center">
-                {
-                  NonUserLinks.map((Link) => (
-                    <li key={Link.name} className='md:ml-8 text-xl'>
-                      <a href={Link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{Link.icon} </a>
-                    </li>
-                  ))
-                }
-              </ul>
+              <div className="flex items-center gap-4">
+                <Link to={'/login'}>
+                  <button className='text-primary-500 text-sm font-semibold tracking-widest py-2 px-4 border-2 border-primary-300 hover:bg-primary-500 hover:text-white rounded'>LOG IN</button>
+                </Link>
+                <Link to={'/signup'}>
+                  <button className='text-white bg-primary-500 text-sm font-semibold tracking-widest py-2 px-4 border-2 border-primary-500 hover:bg-shade-0 hover:text-primary-500 rounded'>GET STARTED</button>
+                </Link>
+              </div>
             </>
           }
         </div>
@@ -114,15 +91,3 @@ export default function NavBar({ user, setUser }) {
     </>
   );
 }
-
-          // <Routes>
-          //   {/* Route components in here */}
-          //   <Route path="/profile" element={<ProfilePage />} />
-          //   <Route path="/home" element={<HomePage />} />
-          // </Routes>
-
-          // <Routes>
-          //   <Route path="/home" element={<HomePage />} />
-          //   <Route path="/sign-up" element={<AuthPage setUser={setUser}/>} />
-          //   <Route path="/login" element={<AuthPage />} />
-          // </Routes>
