@@ -16,6 +16,7 @@ import FaqPage from '../Faq/FaqPage'
 import FindGuide from '../FindGuide/FindGuide';
 import GuideProfile from '../GuideProfile/GuideProfile'
 import Dashboard from '../Dashboard/Dashboard';
+
 import * as grantsApi from "../../utilities/grants-api";
 import * as userApi from "../../utilities/users-api"
 import './App.css';
@@ -57,8 +58,10 @@ function App() {
                 <Route path="/faq" element={<FaqPage />} />
                 {/* <Route path="/signup" element={<SignUpForm setUser={setUser} />} /> */}
                 <Route path="/aboutus" element={<AboutUsPage />} />
-                <Route path="/findguide" element={<FindGuide user={user} guides={guides}/>} />
+                <Route path="/findguide" element={<FindGuide user={user} guides={guides} />} />
+                <Route path="/home" element={<Dashboard user={user} grants={grants} />} />
                 <Route path="/guideprofile" element={<GuideProfile user={user} guides={guides} />} />
+                <Route path='/*' element={<Navigate to={'/home'} />} />
               </Routes>
             </div>
           </>
