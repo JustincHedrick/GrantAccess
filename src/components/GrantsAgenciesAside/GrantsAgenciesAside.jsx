@@ -4,14 +4,11 @@ import FundingSlider from "../FundingSlider/FundingSlider";
 import MatchingRequirementsToggle from "../MatchingRequirementsToggle/MatchingRequirementsToggle";
 import AvailabilityRange from "../AvailabilityRange/AvailabilityRange";
 
-export default function GrantsAgenciesAside({ grants, setGrantsCopy, agencyFilters, setAgencyFilters, query, setQuery, handleSearch, funding, setFunding, fundingOptions, matchingRequirements, setMatchingRequirements, availabilityRange, setAvailabilityRange }) {
+export default function GrantsAgenciesAside({ grants, setGrantsCopy, agencyFilters, setAgencyFilters, setFinalQuery, funding, setFunding, fundingOptions, matchingRequirements, setMatchingRequirements, availabilityRange, setAvailabilityRange }) {
   return (
     <aside className='flex flex-col gap-8'>
       <GrantsSearchBar
-        query={query}
-        setQuery={setQuery}
-        agencyFilters={agencyFilters}
-        handleSearch={handleSearch}
+        setFinalQuery={setFinalQuery}
       />
       <AgencyFilter
         grants={grants}
