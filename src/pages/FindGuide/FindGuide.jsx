@@ -21,7 +21,7 @@ export default function FindGuide({user, guides}) {
 			<div className='grid grid-cols-2 gap-x-8'>
 				{guides.map((g,idx) => ( 
 					<div>
-            <GuideCard user={user} guides={g} key={idx}/>
+            <GuideCard user={user} guides={g} key={idx} guideId={g._id}/>
           </div>
 				))}
 			</div>
