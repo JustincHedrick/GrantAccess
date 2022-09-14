@@ -65,7 +65,7 @@ function App() {
             <div className='container-wrapper px-4'>
               <Routes>
                 {/* Route components in here */}
-                <Route path="/profile" element={<ProfilePage user={user} />} />
+                <Route path="/profile" element={<ProfilePage user={user} guides={guides}/>} />
                 <Route path="/" element={<HomePage user={user} />} />
                 <Route path="/grants" element={<GrantsPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
                 <Route path='/grants/:grantId' element={<GrantDetailPage user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
