@@ -57,7 +57,7 @@ function App() {
                 {/* <Route path="/signup" element={<SignUpForm setUser={setUser} />} /> */}
                 <Route path="/aboutus" element={<AboutUsPage />} />
                 <Route path="/findguide" element={<FindGuide user={user} guides={guides} />} />
-                <Route path="/home" element={<Dashboard user={user} grants={grants} />} />
+                <Route path="/home" element={<Dashboard user={user} grants={grants} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} setGrants={setGrants} />} />
                 <Route path='/*' element={<Navigate to={'/home'} />} />
               </Routes>
             </div>
