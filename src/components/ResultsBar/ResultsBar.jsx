@@ -6,9 +6,9 @@ export default function ResultsBar({ grantsCopy, sortingKeys, setSortKey, sortKe
   return (
     <section className='flex items-center justify-between mb-4'>
       <p className='text-2xl font-semibold'>{grantsCopy.length} results found</p>
-      <section className='flex items-center gap-4' onChange={handleSortChange} value={sortKey}>
+      <section className='flex items-center gap-4'>
         <p className='text-2xl font-semibold'>Sort By</p>
-        <select className='border-1 border-neutral-300 rounded' name="sort" value={sortKey}>
+        <select className='border-1 border-neutral-300 rounded' onChange={handleSortChange} name="sort" value={sortKey}>
           {[...sortingKeys.keys()].map((key) => (
             <option className='' value={key}>{sortingKeys.get(key).dropDownTitle}</option>
           ))}
