@@ -24,6 +24,8 @@ function App() {
   const [grantsCopy, setGrantsCopy] = useState(grants);
   const [guides, setGuides] = useState([]);
 
+  grants.forEach(grant => console.log(grant.CostSharingOrMatchingRequirement));
+
   function processGrants(user, grants) {
     return grants.map((grant) => {
       const userSet = new Set([...grant.users]);

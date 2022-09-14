@@ -1,6 +1,6 @@
 export default function AgencyFilter({ grants, agencyFilters, setAgencyFilters }) {
   // Get all unique agencies from grants
-  const agencies = grants.reduce((set, grant) => (set.add(grant.AgencyName), set), new Set());
+  const agencies = grants.reduce((set, grant) => (set.add(grant.parent_agency_name), set), new Set());
 
   function handleChange(evt) {
     const agencyIndex = agencyFilters.indexOf(evt.target.name);
@@ -13,7 +13,7 @@ export default function AgencyFilter({ grants, agencyFilters, setAgencyFilters }
   }
 
   return (
-    <section className="rounded border-1 border-neutral-50 px-2 pb-4 mb-8">
+    <section className="rounded border-1 border-neutral-50 px-2 pb-4">
       <h2 className="text-2xl font-semibold mb-2 pt-2">Agency</h2>
       {[...agencies].map((agency) => (
         <div className="flex gap-2 align-middle mb-2 last:mb-0">

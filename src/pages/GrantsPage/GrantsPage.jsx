@@ -14,6 +14,8 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
 
     const [agencyFilters, setAgencyFilters] = useState([]);
     const [funding, setFunding] = useState([FUNDING_MIN, FUNDING_MAX]);
+    const [matchingRequirements, setMatchingRequirements] = useState('no');
+    const [availabilityRange, setAvailabilityRange] = useState([null, null]);
     const [sortKey, setSortKey] = useState('');
     const [query, setQuery] = useState('');
 
@@ -23,7 +25,7 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
 
     useEffect(() => {
         handleSearch(query, agencyFilters);
-    }, [agencyFilters, funding]);
+    }, [agencyFilters, funding, matchingRequirements, availabilityRange]);
 
     const fuse = new Fuse(grants, searchOptions);
 
@@ -31,8 +33,19 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
         const filterSet = new Set([...filters]);
         const searchResults = fuse.search(query);
         let grantResults = query ? searchResults.map((result) => result.item) : grants;
-        if (filters.length > 0) grantResults = grantResults.filter((grant) => (filterSet.has(grant.AgencyName)) && (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
+        if (filters.length > 0) {
+            grantResults = grantResults.filter((grant) => (filterSet.has(grant.parent_agency_name)) && (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
+        }
         else grantResults = grantResults.filter((grant) => (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
+        if (matchingRequirements === 'yes') {
+            grantResults = grantResults.filter((grant) => grant.CostSharingOrMatchingRequirement.toLowerCase() === 'yes');
+        }
+        grantResults = grantResults.filter((grant) => {
+            const startDate = availabilityRange[0] ? Date.parse(availabilityRange[0]) : -Infinity;
+            const endDate = availabilityRange[1] ? Date.parse(availabilityRange[1]) : Infinity;
+            console.log(startDate, endDate);
+            return ((startDate <= Date.parse(grant.PostDate)) && (Date.parse(grant.CloseDate) <= endDate));
+        });
         setGrantsCopy(grantResults);
         setSortKey('postDate');
     }
@@ -59,6 +72,10 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
                     funding={funding}
                     setFunding={setFunding}
                     fundingOptions={[FUNDING_MIN, FUNDING_MAX, INCREMENT]}
+                    matchingRequirements={matchingRequirements}
+                    setMatchingRequirements={setMatchingRequirements}
+                    availabilityRange={availabilityRange}
+                    setAvailabilityRange={setAvailabilityRange}
                 />
                 <section>
                     <ResultsBar
@@ -67,7 +84,7 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
                         setSortKey={setSortKey}
                         sortKey={sortKey}
                     />
-                    <GrantsList user={user} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} grants={grants} setGrants={setGrants}/>
+                    <GrantsList user={user} grantsCopy={grantsCopy} setGrantsCopy={setGrantsCopy} grants={grants} setGrants={setGrants} />
                 </section>
             </div>
         </main>
