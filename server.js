@@ -4,12 +4,12 @@ const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-// const http = require('http').createServer(app);
-const io = require("socket.io")(3002, {
+const http = require('http').createServer(app);
+const io = require("socket.io")(http, {
   cors: {
-    origin: "http://localhost:3000",
-    // transports: ["websocket"],
-    // method: ['POST', 'GET']
+    origin: "https://grantguide.herokuapp.com/",
+    transports: ["websocket"],
+    method: ['POST', 'GET']
   }
 });
 
@@ -103,7 +103,7 @@ io.on("connection", (socket) => {
 const port = process.env.PORT || 3001;
 
 //  change to http.listen when production
-app.listen(port, function() {
+http.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
 
