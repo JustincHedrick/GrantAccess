@@ -5,6 +5,7 @@ import GrantsAgenciesAside from '../../components/GrantsAgenciesAside/GrantsAgen
 import ResultsBar from '../../components/ResultsBar/ResultsBar';
 import SORTING_KEYS from './SortingKeys';
 import searchOptions from './FuseSettings';
+import * as grantsAPI from '../../utilities/grants-api';
 import './GrantsPage.css';
 
 export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, setGrants }) {
@@ -15,40 +16,60 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
     const [agencyFilters, setAgencyFilters] = useState([]);
     const [funding, setFunding] = useState([FUNDING_MIN, FUNDING_MAX]);
     const [matchingRequirements, setMatchingRequirements] = useState('no');
-    const [availabilityRange, setAvailabilityRange] = useState([null, null]);
+    const [availabilityRange, setAvailabilityRange] = useState([undefined, undefined]);
     const [sortKey, setSortKey] = useState('');
-    const [query, setQuery] = useState('');
+    const [finalQuery, setFinalQuery] = useState('');
+
+    function processGrants(user, grants) {
+        return grants.map((grant) => {
+            const userSet = new Set([...grant.users]);
+            grant.isSaved = userSet.has(user._id);
+            return grant;
+        });
+    }
+
+    useEffect(() => {
+        if (grants.length > 0) return;
+        const getGrants = async () => {
+            let grants = await grantsAPI.getGrants();
+            grants = processGrants(user, grants);
+            setGrants(grants);
+            setGrantsCopy(grants);
+        }
+        getGrants();
+    }, []);
 
     useEffect(() => {
         handleSort();
     }, [sortKey])
 
     useEffect(() => {
-        handleSearch(query, agencyFilters);
-    }, [agencyFilters, funding, matchingRequirements, availabilityRange]);
+        function handleSearch() {
+            const filterSet = new Set([...agencyFilters]);
+            const searchResults = fuse.search(finalQuery);
+            let grantResults = finalQuery ? searchResults.map((result) => result.item) : grants;
+            if (filterSet.size > 0) {
+                grantResults = grantResults.filter((grant) => (filterSet.has(grant.parent_agency_name)) && (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
+            }
+            grantResults = grantResults.filter((grant) => (grant.AwardCeiling >= funding[0] && (funding[1] === FUNDING_MAX || grant.AwardCeiling <= funding[1])));
+            if (matchingRequirements === 'yes') {
+                grantResults = grantResults.filter((grant) => grant.CostSharingOrMatchingRequirement.toLowerCase() === 'yes');
+            }
+            if (availabilityRange[0] || availabilityRange[1]) {
+                grantResults = grantResults.filter((grant) => {
+                    const startDate = availabilityRange[0] ? Date.parse(availabilityRange[0]) : -Infinity;
+                    const endDate = availabilityRange[1] ? Date.parse(availabilityRange[1]) : Infinity;
+                    // console.log(startDate, endDate);
+                    return ((startDate <= Date.parse(grant.PostDate)) && (Date.parse(grant.CloseDate) <= endDate));
+                });
+            }
+            setGrantsCopy(grantResults);
+            setSortKey('postDate');
+        }
+        handleSearch();
+    }, [finalQuery, agencyFilters, funding, matchingRequirements, availabilityRange]);
 
     const fuse = new Fuse(grants, searchOptions);
-
-    function handleSearch(query, filters) {
-        const filterSet = new Set([...filters]);
-        const searchResults = fuse.search(query);
-        let grantResults = query ? searchResults.map((result) => result.item) : grants;
-        if (filters.length > 0) {
-            grantResults = grantResults.filter((grant) => (filterSet.has(grant.parent_agency_name)) && (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
-        }
-        else grantResults = grantResults.filter((grant) => (grant.AwardCeiling >= funding[0] && grant.AwardCeiling <= funding[1]));
-        if (matchingRequirements === 'yes') {
-            grantResults = grantResults.filter((grant) => grant.CostSharingOrMatchingRequirement.toLowerCase() === 'yes');
-        }
-        grantResults = grantResults.filter((grant) => {
-            const startDate = availabilityRange[0] ? Date.parse(availabilityRange[0]) : -Infinity;
-            const endDate = availabilityRange[1] ? Date.parse(availabilityRange[1]) : Infinity;
-            console.log(startDate, endDate);
-            return ((startDate <= Date.parse(grant.PostDate)) && (Date.parse(grant.CloseDate) <= endDate));
-        });
-        setGrantsCopy(grantResults);
-        setSortKey('postDate');
-    }
 
     function handleSort() {
         if (!sortKey) return;
@@ -66,9 +87,7 @@ export default function GrantsPage({ user, grants, grantsCopy, setGrantsCopy, se
                     grants={grants}
                     agencyFilters={agencyFilters}
                     setAgencyFilters={setAgencyFilters}
-                    query={query}
-                    setQuery={setQuery}
-                    handleSearch={handleSearch}
+                    setFinalQuery={setFinalQuery}
                     funding={funding}
                     setFunding={setFunding}
                     fundingOptions={[FUNDING_MIN, FUNDING_MAX, INCREMENT]}

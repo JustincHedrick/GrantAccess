@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './GrantsSearchBar.css';
 
-export default function GrantsSearchBar({ query, setQuery, agencyFilters, handleSearch }) {
-
+export default function GrantsSearchBar({ setFinalQuery }) {
+  const [query, setQuery] = useState('');
+  
   function handleChange(evt) {
     console.log(evt.currentTarget.value);
     setQuery(evt.currentTarget.value);
@@ -10,7 +11,8 @@ export default function GrantsSearchBar({ query, setQuery, agencyFilters, handle
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    handleSearch(query, agencyFilters);
+    // handleSearch(query, agencyFilters);
+    setFinalQuery(query);
   }
 
   return (
