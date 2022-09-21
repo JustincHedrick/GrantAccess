@@ -8,9 +8,10 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
-export default function FundingSlider({ fundingOptions, funding, setFunding }) {
+export default function FundingSlider({ fundingOptions, filters, setFilters }) {
+  const funding = filters.funding;
   const handleSliderChange = (event, newValue) => {
-    setFunding([...newValue]);
+    setFilters({ ...filters, funding: [...newValue] });
   };
 
   return (

@@ -1,4 +1,5 @@
 const SORTING_KEYS = new Map();
+
 SORTING_KEYS.set('postDate', {
   propertyName: 'PostDate',
   dropDownTitle: 'Post Date',
@@ -7,6 +8,7 @@ SORTING_KEYS.set('postDate', {
     return date ? Date.parse(date) : Infinity;
   }
 });
+
 SORTING_KEYS.set('closeDate', {
   propertyName: 'CloseDate',
   dropDownTitle: 'Close Date',
@@ -15,6 +17,7 @@ SORTING_KEYS.set('closeDate', {
     return date ? Date.parse(date) : Infinity;
   }
 });
+
 SORTING_KEYS.set('titleA', {
   propertyName: 'OpportunityTitle',
   dropDownTitle: 'Grant Title',

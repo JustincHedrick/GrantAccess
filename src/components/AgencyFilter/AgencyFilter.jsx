@@ -1,22 +1,25 @@
-export default function AgencyFilter({ grants, agencyFilters, setAgencyFilters }) {
+export default function AgencyFilter({ grants, filters, setFilters }) {
   // Get all unique agencies from grants
   const agencies = grants.reduce((set, grant) => (set.add(grant.parent_agency_name), set), new Set());
 
   function handleChange(evt) {
-    const agencyIndex = agencyFilters.indexOf(evt.target.name);
-    if (evt.target.checked && agencyIndex === -1) {
-      setAgencyFilters([...agencyFilters, evt.target.name]);
+    const hasAgency = filters.agencyFilters.has(evt.target.name);
+    console.log(hasAgency);
+    if (evt.target.checked && !hasAgency) {
+      // setAgencyFilters(new Set([...agencyFilters.add(evt.target.name)]));
+      setFilters({ ...filters, agencyFilters: filters.agencyFilters.add(evt.target.name) });
     }
-    else if (!evt.target.checked && agencyIndex > -1) {
-      setAgencyFilters(agencyFilters.filter((_, idx) => idx !== agencyIndex));
+    else if (!evt.target.checked && hasAgency) {
+      // setAgencyFilters(new Set([...(agencyFilters.delete(evt.target.name), agencyFilters)]));
+      setFilters({ ...filters, agencyFilters: (filters.agencyFilters.delete(evt.target.name), filters.agencyFilters) });
     }
   }
 
   return (
     <section className="rounded border-1 border-neutral-50 px-2 pb-4">
       <h2 className="text-2xl font-semibold mb-2 pt-2">Agency</h2>
-      {[...agencies].map((agency) => (
-        <div className="flex gap-2 align-middle mb-2 last:mb-0">
+      {[...agencies].map((agency, index) => (
+        <div key={index} className="flex gap-2 align-middle mb-2 last:mb-0">
           <input onChange={handleChange} type="checkbox" name={agency} id="" />
           <label className='leading-tight' htmlFor={agency}>{agency}</label>
         </div>

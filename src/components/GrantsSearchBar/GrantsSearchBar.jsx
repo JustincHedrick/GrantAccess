@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import './GrantsSearchBar.css';
 
-export default function GrantsSearchBar({ setFinalQuery }) {
+export default function GrantsSearchBar({ filters, setFilters }) {
   const [query, setQuery] = useState('');
-  
+
   function handleChange(evt) {
-    console.log(evt.currentTarget.value);
     setQuery(evt.currentTarget.value);
   }
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    // handleSearch(query, agencyFilters);
-    setFinalQuery(query);
+    setFilters({ ...filters, funding: query });
   }
 
   return (
