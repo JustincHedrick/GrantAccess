@@ -8,7 +8,7 @@ export default function Dashboard({ user, grantsCopy, setGrantsCopy, grants, set
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    function processGrants(user, grants) {
+    const applySavedProperty = (user, grants) => {
       const savedGrants = grants.map((grant) => {
         const userSet = new Set([...grant.users]);
         grant.isSaved = userSet.has(user._id);
@@ -18,7 +18,7 @@ export default function Dashboard({ user, grantsCopy, setGrantsCopy, grants, set
     }
     async function getSavedGrants() {
       let savedGrants = await grantsAPI.getGrants();
-      savedGrants = processGrants(user, savedGrants);
+      savedGrants = applySavedProperty(user, savedGrants);
       setSavedGrants(savedGrants);
       setIsLoading(false);
     }

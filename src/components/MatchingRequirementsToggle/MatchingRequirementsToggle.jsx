@@ -1,7 +1,7 @@
 import { Switch } from "@mui/material";
-export default function MatchingRequirementsToggle({ matchingRequirements, setMatchingRequirements }) {
+export default function MatchingRequirementsToggle({ filters, setFilters }) {
   function handleChange() {
-    setMatchingRequirements(matchingRequirements === 'no' ? 'yes' : 'no');
+    setFilters({ ...filters, matchingRequirements: filters.matchingRequirements === 'no' ? 'yes' : 'no' });
   }
   return (
     <section className="rounded border-1 border-neutral-50 px-2 py-2">
@@ -23,7 +23,7 @@ export default function MatchingRequirementsToggle({ matchingRequirements, setMa
               borderColor: '#DDDEDF'
             }
           }}
-          checked={matchingRequirements === 'yes'}
+          checked={filters.matchingRequirements === 'yes'}
           onChange={handleChange}
           inputProps={{ 'aria-label': 'controlled' }}
         />

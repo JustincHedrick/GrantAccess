@@ -5,10 +5,11 @@ export default function GrantButtons() {
       <Link to={'/grants'}>
         <button
           type="button"
-          class="
+          className="
           text-primary-500
           font-semibold
-          text-sm tracking-widest
+          text-sm
+          tracking-widest
           hover:text-white
           border-2
           border-primary-500
@@ -24,7 +25,7 @@ export default function GrantButtons() {
       <Link to={'/findguide'}>
         <button
           type="button"
-          class="
+          className="
           text-primary-500
           font-semibold
           text-sm

@@ -1,7 +1,13 @@
-export default function AvailabilityRange({ availabilityRange, setAvailabilityRange }) {
+export default function AvailabilityRange({ filters, setFilters }) {
+  const availabilityRange = filters.availabilityRange;
+
   function handleChange(evt) {
-    if (evt.target.name === 'startDate') setAvailabilityRange([evt.target.value, availabilityRange[1]]);
-    else setAvailabilityRange([availabilityRange[0], evt.target.value]);
+    if (evt.target.name === 'startDate') {
+      setFilters({ ...filters, availabilityRange: [evt.target.value, availabilityRange[1]] });
+    }
+    else {
+      setFilters({ ...filters, availabilityRange: [availabilityRange[0], evt.target.value] });
+    }
   }
 
   return (
