@@ -10,7 +10,7 @@ export default function GrantsSearchBar({ filters, setFilters }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    setFilters({ ...filters, funding: query });
+    setFilters({ ...filters, finalQuery: query });
   }
 
   return (
