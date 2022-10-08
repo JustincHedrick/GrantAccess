@@ -34,41 +34,41 @@ export const engineers = [
     resume: "https://docs.google.com/document/d/1tHkr73Aktw-whL4-R3P26PI5pyrc-Cm62P_3ftLxcNs/edit",
     linkedIn: "https://www.linkedin.com/in/tesh-deo94/"
   },
-  { 
-    name: 'Sean Watson',
-    img: "",
-    title: 'Full Stack Engineer',
-    resume: "",
-    linkedIn: "https://www.linkedin.com/in/sean-watson30/"
-  },
-  { 
-    name: 'Haziq Naeem',
-    img: "",
-    title: 'Full Stack Engineer',
-    resume: "",
-    linkedIn: ""
-  },
-  { 
-    name: 'Ross Philips',
-    img: "",
-    title: 'Full Stack Engineer',
-    resume: "",
-    linkedIn: ""
-  },
-  {
-    name: 'Joseph Caputo',
-    img: "",
-    title: 'Full Stack Engineer',
-    resume: "",
-    linkedIn: ""
-  },
-  {
-    name: 'Junior Figueroa',
-    img: "",
-    title: 'Full Stack Engineer',
-    resume: "",
-    linkedIn: ""
-  },
+  // { 
+  //   name: 'Sean Watson',
+  //   img: "",
+  //   title: 'Full Stack Engineer',
+  //   resume: "",
+  //   linkedIn: "https://www.linkedin.com/in/sean-watson30/"
+  // },
+  // { 
+  //   name: 'Haziq Naeem',
+  //   img: "",
+  //   title: 'Full Stack Engineer',
+  //   resume: "",
+  //   linkedIn: ""
+  // },
+  // { 
+  //   name: 'Ross Philips',
+  //   img: "",
+  //   title: 'Full Stack Engineer',
+  //   resume: "",
+  //   linkedIn: ""
+  // },
+  // {
+  //   name: 'Joseph Caputo',
+  //   img: "",
+  //   title: 'Full Stack Engineer',
+  //   resume: "",
+  //   linkedIn: ""
+  // },
+  // {
+  //   name: 'Junior Figueroa',
+  //   img: "",
+  //   title: 'Full Stack Engineer',
+  //   resume: "",
+  //   linkedIn: ""
+  // },
 ]
 
 export const designers = [
