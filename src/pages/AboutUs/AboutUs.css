@@ -1,36 +1,35 @@
-.general {
+.general, .top, .data, .ux, .thanks, .problem, .solution {
   font-weight: 400;
   font-size: 50px;
-}
-
-.top {
-  font-size: 50px;
-  font-weight: 400;
-}
-
-.data {
-  font-size: 50px;
-  font-weight: 400;
-}
-
-.ux {
-  font-size: 50px;
-  font-weight: 400;
-}
-
-.thanks {
-  font-size: 50px;
-  font-weight: 400;
 }
 
 .message {
   font-size: 25px;
   margin-bottom: 35px;
   margin-top: 10px;
-  /* background-color: aliceblue; */
 }
 
 .statement {
   color: black;
   font-size: 25px;
+}
+
+#MTT {
+  margin-top: 30px;
+  /* Meet the team! */
+  width: 732px;
+  height: 68px;
+  left: 94px;
+  top: 262px;
+  /* Heading1/Bold */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 68px;
+  /* identical to box height */
+  display: flex;
+  align-items: flex-end;
+  /* Primary/700 */
+  color: #0F382A;
 }
