@@ -10,9 +10,9 @@ export default function AboutUs() {
             <div class="bg-white rounded-lg shadow-lg">
                 <img src={ img } alt={ name } class="rounded-t-lg w-full"/>
                 <div class="p-6">
-                    <div className='card-content' class='flex-col justify-between'>
+                    <div class='flex-col justify-between'>
                         <div className='card-top'>
-                            <h2 class="font-bold mb-2 text-2xl text-purple-800">{ name }</h2>
+                            <h2 class="font-bold mb-2 text-2xl text-purple-800 flex-auto">{ name }</h2>
                             <p class="text-purple-700 mb-2">{ title }</p>
                         </div>
                         
